@@ -1,0 +1,12 @@
+
+body{
+    background-color: black;
+}
+#p {
+    color: white;
+    width: 300px;
+}
+h2 {
+    color: red;
+    text-decoration: underline white 1px;
+}
