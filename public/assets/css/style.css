@@ -1,0 +1,14 @@
+:root{
+    --primary-color: #000000;
+    --secondary-color: #ff0000;
+    --ternary-color: #f5f5f5;
+}
+.reseaux{
+    width:30%;
+}
+footer{
+    background-color: var(--primary-color);
+}
+.copyright{
+    color: var(--secondary-color);
+}
