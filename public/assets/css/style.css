@@ -12,3 +12,7 @@ footer{
 .copyright{
     color: var(--secondary-color);
 }
+.container{
+    padding-left: 10%;
+padding-top:5%;
+}
