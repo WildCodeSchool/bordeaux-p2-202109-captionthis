@@ -9,7 +9,7 @@
 
 #logo{
     height: auto;
-    width: 100px;
+    width: 23%;
     margin-right: 60px;
 }
 #bootstrap-override .navbar-toggler-icon {
@@ -22,28 +22,32 @@
 }
 
 #bootstrap-override .navbar-brand {
-    color: var(--secondary-color) !important;
+    color: var(--ternary-color) !important;
+    font-size: 33px !important;
 }
 #bootstrap-override .nav-link{
     color: var(--secondary-color) !important;
+    font-size: 30px;
 }
 .container-fluid{
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid darkred;
+    padding: 10px;
+}
+.network{
+    width:20%;
 }
 
-
-.reseaux{
-    width:30%;
-}
 footer{
     background-color: var(--primary-color);
 }
 .copyright{
     color: var(--secondary-color);
 }
-.container {
-    padding-top:5%;
+.networks {
+    padding-top:10%;
+    padding-bottom: 10%;
 }
 
 
@@ -58,5 +62,8 @@ body{
 h2 {
     color: var(--secondary-color);
     text-decoration: underline white 1px;
+}
+.home-pictures{
+    padding-top: 5%;
 }
 
