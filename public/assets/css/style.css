@@ -1,4 +1,24 @@
 
+:root{
+    --primary-color: #000000;
+    --secondary-color: #ff0000;
+    --ternary-color: #f5f5f5;
+}
+.reseaux{
+    width:30%;
+}
+footer{
+    background-color: var(--primary-color);
+}
+.copyright{
+    color: var(--secondary-color);
+}
+.container{
+    padding-left: 10%;
+    padding-top:5%;
+}
+
+
 body{
     background-color: black;
     font-family: 'Bebas Neue', cursive;
@@ -11,3 +31,4 @@ h2 {
     color: red;
     text-decoration: underline white 1px;
 }
+
