@@ -13,30 +13,26 @@
     margin-right: 60px;
 }
 #bootstrap-override .navbar-toggler-icon {
-    background-color: black;
+    background-color: var(--primary-color) !important;
     background-image: url("/assets/images/logoM.jpg");
 }
 
-.text-primary{
+.text-primary {
     color: var(--secondary-color) !important;
 }
 
 #bootstrap-override .navbar-brand {
-    color: #ff0000;
+    color: var(--secondary-color) !important;
 }
 #bootstrap-override .nav-link{
-    color: #ff0000;
+    color: var(--secondary-color) !important;
 }
 .container-fluid{
     display: flex;
     justify-content: space-between;
 }
 
-:root{
-    --primary-color: #000000;
-    --secondary-color: #ff0000;
-    --ternary-color: #f5f5f5;
-}
+
 .reseaux{
     width:30%;
 }
@@ -46,22 +42,21 @@ footer{
 .copyright{
     color: var(--secondary-color);
 }
-.container{
-    padding-left: 10%;
+.container {
     padding-top:5%;
 }
 
 
 body{
-    background-color: black;
+    background-color: var(--primary-color) !important;
     font-family: 'Bebas Neue', cursive;
 }
 #p {
-    color: white;
+    color: var(--ternary-color);
     width: 300px;
 }
 h2 {
-    color: red;
+    color: var(--secondary-color);
     text-decoration: underline white 1px;
 }
 
