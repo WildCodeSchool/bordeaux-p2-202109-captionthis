@@ -3,64 +3,50 @@
     --secondary-color: #ff0000;
     --ternary-color: #f5f5f5;
 }
-.navbar {
+.bg-primary {
     background-color: var(--primary-color) !important;
 }
+.bg-ternary {
+    background-color: var(--ternary-color);
+}
+.text-primary {
+    color: var(--primary-color) !important;
+}
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+.text-ternary {
+    color: var(--ternary-color) !important;
+}
 
+body{
+    font-family: 'Bebas Neue', cursive;
+}
 #logo{
     height: auto;
     width: 23%;
     margin-right: 60px;
 }
-#bootstrap-override .navbar-toggler-icon {
-    background-color: var(--primary-color) !important;
+ .navbar-toggler-icon {
     background-image: url("/assets/images/logoM.jpg");
 }
-
-.text-primary {
-    color: var(--secondary-color) !important;
-}
-
-#bootstrap-override .navbar-brand {
-    color: var(--ternary-color) !important;
+.navbar-brand {
     font-size: 33px !important;
 }
-#bootstrap-override .nav-link{
-    color: var(--secondary-color) !important;
+.nav-link{
     font-size: 30px;
-}
-.container-fluid{
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid darkred;
-    padding: 10px;
 }
 .network{
     width:20%;
-}
-
-footer{
-    background-color: var(--primary-color);
-}
-.copyright{
-    color: var(--secondary-color);
 }
 .networks {
     padding-top:10%;
     padding-bottom: 10%;
 }
-
-
-body{
-    background-color: var(--primary-color) !important;
-    font-family: 'Bebas Neue', cursive;
-}
-#p {
-    color: var(--ternary-color);
+.best-legend{
     width: 300px;
 }
-h2 {
-    color: var(--secondary-color);
+u {
     text-decoration: underline white 1px;
 }
 .home-pictures{
