@@ -1,18 +1,23 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-
-    <h1> Vote pour ta légende préférée </h1>
-    <img src="{{ picture.url }}" alt="meme">
-    {% include 'Picture/_form.html.twig' %}
+    <div class="container py-5">
+        <h1 class="text-center text-ternary"> Vote pour ta légende préférée </h1>
+        <div class="row">
+            <figure>
+                <img id='picture-show' class="rounded mx-auto d-flex img-fluid" src="{{ picture.url }}" alt="meme">
+            </figure>
+        </div>
+    </div>
+            {% include 'Picture/_form.html.twig' %}
     <div class="container">
         <ul class="list-group">
             {% for legend in legends %}
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">{{ legend.content }}</div>
-                        Posté par {{ legend.name }}
-                        <img src="https://avatars.githubusercontent.com/{{ legend.nickname_github }}">
-                        </div>
+                <li class="list-group-item d-flex justify-content-between align-items-start col-9 mx-auto">
+                    <div>
+                        <div class="fw-bold fs-3">{{ legend.content }}</div>
+                        <img id="photo-profil" class="img-fluid d-inline" src="https://avatars.githubusercontent.com/{{ legend.nickname_github }}">
+                        <p class="d-inline">Posté par {{ legend.name }}</p>
+                    </div>
                         <span class="badge bg-primary rounded-pill">{{ legend.ranking }}</span>
                 </li>
             {% endfor %}
