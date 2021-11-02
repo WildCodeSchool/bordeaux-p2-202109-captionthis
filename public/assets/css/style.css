@@ -39,21 +39,11 @@ body{
     width: 23%;
     margin-right: 60px;
 }
- .navbar-toggler-icon {
-    background-image: url("/assets/images/logoM.jpg");
-}
-.navbar-brand {
-    font-size: 33px !important;
-}
-.nav-link{
-    font-size: 30px;
+#bootstrap-override .navbar-toggler-icon {
+    background-image: url("/assets/images/logoM.jpg") !important;
 }
 .network{
     width:20%;
-}
-.networks {
-    padding-top:10%;
-    padding-bottom: 10%;
 }
 .best-legend{
     width: 300px;
