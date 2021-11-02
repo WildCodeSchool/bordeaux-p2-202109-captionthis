@@ -6,6 +6,9 @@
 .bg-primary {
     background-color: var(--primary-color) !important;
 }
+.bg-secondary {
+    background-color: var(--secondary-color) !important;
+}
 .bg-ternary {
     background-color: var(--ternary-color);
 }
@@ -17,6 +20,15 @@
 }
 .text-ternary {
     color: var(--ternary-color) !important;
+}
+border-primary {
+    border-color: var(--primary-color) !important;
+}
+.border-secondary {
+    border-color: var(--secondary-color) !important;
+}
+.border-ternary {
+    border-color: var(--ternary-color) !important;
 }
 
 body{
@@ -46,9 +58,6 @@ body{
 .best-legend{
     width: 300px;
 }
-u {
-    text-decoration: underline white 1px;
-}
 .home-pictures{
     padding-top: 5%;
 }
@@ -60,4 +69,3 @@ img {
     width: 100%;
     height: 100%;
 }
-
