@@ -1,0 +1,31 @@
+<form class="row g-3 needs-validation" novalidate>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Ton pseudo</label>
+        <input type="text" class="form-control" id="validationCustom01" placeholder="ElTitix" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="validationTextarea" class="form-label">Poste nous ta meilleure légende !</label>
+        <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Laisse libre cours à ton imagination" required></textarea>
+        <div class="invalid-feedback">
+            Please enter a message in the textarea.
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+                You must agree before submitting.
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Envoyer ! </button>
+    </div>
+</form>
