@@ -9,17 +9,19 @@
 return [
     '' => ['HomeController', 'index',],
     'image' => ['PictureController','show', ['id']],
+
     'registration' => ['UserController', 'register',],
     'connection' => ['UserController', 'connect',],
     'logout' => ['UserController', 'logout',],
     'profil' => ['UserController', 'profile', ['id']],
+    'rank' => ['PictureController', 'rank', ['id']],
 
 
-   // 'items' => ['ItemController', 'index',],
-   // 'items/edit' => ['ItemController', 'edit', ['id']],
-   // 'items/show' => ['ItemController', 'show', ['id']],
-   // 'items/add' => ['ItemController', 'add',],
-   // 'items/delete' => ['ItemController', 'delete',],
+    'items' => ['ItemController', 'index',],
+    'items/edit' => ['ItemController', 'edit', ['id']],
+    'items/show' => ['ItemController', 'show', ['id']],
+    'items/add' => ['ItemController', 'add',],
+    'items/delete' => ['ItemController', 'delete',],
 
 
 
