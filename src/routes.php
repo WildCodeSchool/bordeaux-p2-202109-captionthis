@@ -9,6 +9,11 @@
 return [
     '' => ['HomeController', 'index',],
     'image' => ['PictureController','show', ['id']],
+
+    'registration' => ['UserController', 'register',],
+    'connection' => ['UserController', 'connect',],
+    'logout' => ['UserController', 'logout',],
+    'profil' => ['UserController', 'profile', ['id']],
     'rank' => ['PictureController', 'rank', ['id']],
 
 
