@@ -31,7 +31,21 @@ class UserController extends AbstractController
                 var_dump('not ok');
             }
         }
-        var_dump($_SESSION);
-        return $this->twig->render('User/connect.html.twig');
+        return $this->twig->render('User/connect.html.twig', [
+        'session' => $_SESSION,
+        ]);
+    }
+    public function logout()
+    {
+        session_destroy();
+        header('Location: /');
+    }
+    public function profil(int $id): string
+    {
+        $userManager = new UserManager();
+        $userData = $userManager -> selectOneById($id);
+        return $this->twig->render('User/profile.html.twig', [
+            'user_data' => $userData,
+            ]);
     }
 }
