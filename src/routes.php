@@ -9,6 +9,7 @@
 return [
     '' => ['HomeController', 'index',],
     'image' => ['PictureController','show', ['id']],
+    'rank' => ['PictureController', 'rank', ['id']],
 
 
     'items' => ['ItemController', 'index',],

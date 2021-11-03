@@ -1,13 +1,14 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
     <div class="container py-5">
-        <h1 class="text-center text-ternary"> Vote pour ta légende préférée </h1>
-        <div class="row">
-            <figure>
-                <img id='picture-show' class="rounded mx-auto d-flex img-fluid" src="{{ picture.url }}" alt="meme">
-            </figure>
-        </div>
+    <h1 class="text-center text-ternary"> Vote pour ta légende préférée </h1>
+    <div class="row">
+        <figure>
+            <img id='picture-show' class="rounded mx-auto d-flex img-fluid" src="{{ picture.url }}" alt="meme">
+        </figure>
     </div>
+    </div>
+    {{ ranks.content }}
     <div class="container">
         <ul class="list-group">
             {% for legend in legends %}
