@@ -79,3 +79,7 @@ img {
     text-overflow: ellipsis;
     font-size: 25px;
 }
+
+.btn-lg {
+    width: 300px;
+}
