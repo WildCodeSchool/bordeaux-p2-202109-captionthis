@@ -39,27 +39,14 @@ body{
     width: 23%;
     margin-right: 60px;
 }
- .navbar-toggler-icon {
-    background-image: url("/assets/images/logoM.jpg");
-}
-.navbar-brand {
-    font-size: 33px !important;
-}
-.nav-link{
-    font-size: 30px;
+.navbar-toggler-icon {
+    background-image: url("/assets/images/logoM.jpg") !important;
 }
 .network{
     width:20%;
 }
-.networks {
-    padding-top:10%;
-    padding-bottom: 10%;
-}
 .best-legend{
     width: 300px;
-}
-.home-pictures{
-    padding-top: 5%;
 }
 figure {
     width: 400px;
@@ -68,4 +55,27 @@ figure {
 img {
     width: 100%;
     height: 100%;
+}
+#picture-show {
+    max-width: 700px;
+    height: auto;
+}
+#photo-profil {
+    max-width: 80px;
+    height: auto;
+}
+.swiper {
+    width: 100vw;
+    height: 300px;
+}
+.content {
+    color: white;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.68);
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 25px;
 }
