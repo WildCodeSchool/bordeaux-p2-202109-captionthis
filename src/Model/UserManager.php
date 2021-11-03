@@ -17,6 +17,7 @@ class UserManager extends AbstractManager
         $statement->bindValue(':password', $userData['password'], \PDO::PARAM_STR);
         $statement->bindValue(':nickname_github', $userData['nickname_github'], \PDO::PARAM_STR);
         $statement->execute();
+        return $this->pdo->lastInsertId();
     }
     public function selectOneByName(string $name)
     {

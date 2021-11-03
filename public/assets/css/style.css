@@ -105,6 +105,10 @@ input:focus{
     color: white;
 }
 
+.profile{
+    margin-top: 40px;
+}
+
 
 #picture-show {
     max-width: 700px;
