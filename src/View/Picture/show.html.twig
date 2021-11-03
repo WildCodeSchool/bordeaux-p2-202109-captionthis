@@ -8,19 +8,22 @@
             </figure>
         </div>
     </div>
-            {% include 'Picture/_form.html.twig' %}
     <div class="container">
         <ul class="list-group">
             {% for legend in legends %}
-                <li class="list-group-item d-flex justify-content-between align-items-start col-9 mx-auto my-1 rounded-3">
-                    <div>
-                        <div class="fw-bold fs-3">{{ legend.content }}</div>
-                        <img id="photo-profil" class="img-fluid d-inline" src="https://avatars.githubusercontent.com/{{ legend.nickname_github }}">
-                        <p class="d-inline">Posté par {{ legend.name }}</p>
+                <li class="list-group-item d-flex justify-content-end align-items-start col-12 col-sm-10 col-md-9 mx-auto my-1 rounded-3">
+                    <div class="flex-grow-1">
+                        <div class="fs-2">
+                            {{ legend.content }}
+                        </div>
                     </div>
-                        <span class="badge bg-primary rounded-pill">{{ legend.ranking }}</span>
+                    <p>Posté par {{ legend.name }}</p>
+                    <img id="photo-profil" class="img-fluid rounded-circle px-3" src="https://avatars.githubusercontent.com/{{ legend.nickname_github }}">
+                    <span class="badge bg-primary ">{{ legend.ranking }}</span>
                 </li>
             {% endfor %}
         </ul>
     </div>
+    {% include 'Picture/_form.html.twig' %}
+
 {% endblock %}
