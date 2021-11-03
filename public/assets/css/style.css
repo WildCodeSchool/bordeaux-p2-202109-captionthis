@@ -39,7 +39,7 @@ body{
     width: 23%;
     margin-right: 60px;
 }
-#bootstrap-override .navbar-toggler-icon {
+.navbar-toggler-icon {
     background-image: url("/assets/images/logoM.jpg") !important;
 }
 .network{
