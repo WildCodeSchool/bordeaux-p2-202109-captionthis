@@ -27,8 +27,11 @@ class UserController extends AbstractController
             $userData = $userManager->selectOnebyName($_POST['name']);
             if (password_verify($_POST['password'], $userData['password'])) {
                 $_SESSION['user'] = $userData;
+            } else {
+                var_dump('not ok');
             }
         }
+        var_dump($_SESSION);
         return $this->twig->render('User/connect.html.twig');
     }
 }
