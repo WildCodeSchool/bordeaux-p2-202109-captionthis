@@ -48,9 +48,6 @@ body{
 .best-legend{
     width: 300px;
 }
-.home-pictures{
-    padding-top: 5%;
-}
 figure {
     width: 400px;
     height: 300px;
@@ -58,4 +55,12 @@ figure {
 img {
     width: 100%;
     height: 100%;
+}
+#picture-show {
+    max-width: 700px;
+    height: auto;
+}
+#photo-profil {
+    max-width: 80px;
+    height: auto;
 }
