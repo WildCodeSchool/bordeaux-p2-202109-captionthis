@@ -64,3 +64,18 @@ img {
     max-width: 80px;
     height: auto;
 }
+.swiper {
+    width: 100vw;
+    height: 300px;
+}
+.content {
+    color: white;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.68);
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 25px;
+}

@@ -1,51 +1,21 @@
 {% extends 'layout.html.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+{% endblock %}
 {% block content %}
-<div class="container" >
+<div class="container-fluid" >
     <div class="home-pictures pt-5">
-    <h2 class="text-center text-secondary" >Les petites dernières</h2>
-        <div class="row">
-            <figure class="col-12 col-sm-6 col-lg-4">
-                    <img src="https://picsum.photos/300/200?random=1" class="rounded mx-auto d-block">
-            </figure>
-            <figure class="col-12 col-sm-6 col-lg-4">
-                    <img src="https://picsum.photos/300/200?random=2" class="rounded mx-auto d-block">
-            </figure>
-            <figure class="col-12 col-sm-6 col-lg-4">
-                    <img src="https://picsum.photos/300/200?random=3" class="rounded mx-auto d-block">
-            </figure>
-        </div>
-    <h2 class="text-center text-secondary">Le TOP du TOP</h2>
-        <div class="row mb-5">
-                <figure class="col-12 col-sm-6 col-lg-4">
-                    <img src="https://i.imgflip.com/5sml2v.jpg" class="rounded mx-auto d-block">
-                    <figcaption>
-                        <p class="best-legend rounded mx-auto d-block text-center text-ternary">Lorem ipsum dolor sit amet, consectetur adipisicing elit poorporis.</p>
-                    </figcaption>
-                </figure>
-                <figure class="col-12 col-sm-6 col-lg-4" >
-                    <img src="https://i.imgflip.com/5smgwx.jpg" class="rounded mx-auto d-block">
-                    <figcaption>
-                        <p class="best-legend rounded mx-auto d-block text-center text-ternary">Lorem ipsum dolor sit amet, consectetur adipisicing elit poorporis.</p>
-                    </figcaption>
-                </figure>
-                <figure class="col-12 col-sm-6 col-lg-4" >
-                    <img src="https://i.imgflip.com/5sml8z.jpg" class="rounded mx-auto d-block">
-                    <figcaption>
-                        <p class="best-legend rounded mx-auto d-block text-center text-ternary">Lorem ipsum dolor sit amet, consectetur adipisicing elit poorporis.</p>
-                    </figcaption>
-                </figure>
-        </div>
-    <h2 class="text-center text-secondary">On ne savait pas quoi mettre ici</h2>
-        <div class="row">
-            <figure class="col-12 col-sm-6 col-lg-4">
-                <img src="https://picsum.photos/300/200?random=4" class="rounded mx-auto d-block">
-            </figure>
-            <figure class="col-12 col-sm-6 col-lg-4">
-                <img src="https://picsum.photos/300/200?random=5" class="rounded mx-auto d-block">
-            </figure>
-            <figure class="col-12 col-sm-6 col-lg-4">
-                <img src="https://picsum.photos/300/200?random=6" class="rounded mx-auto d-block">
-            </figure>
-        </div>
+        <h2 class="text-center text-secondary" >Les petites dernières</h2>
+            {% include 'Component/_swiper.html.twig' %}
+        <h2 class="text-center text-secondary">Le TOP du TOP</h2>
+            {% include 'Component/_swiper.html.twig' %}
+        <h2 class="text-center text-secondary">On ne savait pas quoi mettre ici</h2>
+            {% include 'Component/_swiper.html.twig' %}
+    </div>
 </div>
+
+    {% endblock %}
+{% block javascript %}
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="assets/js/swiper.js"></script>
 {% endblock %}
