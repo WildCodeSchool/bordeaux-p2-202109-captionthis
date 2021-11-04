@@ -1,26 +1,32 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: aurelwcs
- * Date: 08/04/19
- * Time: 18:40
- */
-
 namespace App\Controller;
+
+use App\Model\LegendManager;
+use App\Model\PictureManager;
 
 class HomeController extends AbstractController
 {
-    /**
-     * Display home page
-     *
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
-    public function index()
+// Methode pour afficher sur le carrousel de l'accueil les dernières photos ajoutées
+    public function showLastPictures(string $date)
     {
-        return $this->twig->render('Home/index.html.twig');
+        $pictureManager = new PictureManager();
+        $date = $pictureManager->showPictureByDate($date);
+
+        return $this->twig->render('Home/index.html.twig', [
+            'date' => $date,
+            //'randomPictures'=>$randomPictures
+        ]);
     }
+// Methode pour afficher sur le carrousel de l'accueil les photos ayant reçu le plus grand nb de votes
+    public function showPictureById(int $id)
+    {
+        $legendManager = new LegendManager();
+        $bestLegends = $legendManager->showPictureById($id);
+        return $this->twig->render('Home/index.html.twig', [
+            'bestLegends' => $bestLegends,
+        ]);
+    }
+
+
 }
