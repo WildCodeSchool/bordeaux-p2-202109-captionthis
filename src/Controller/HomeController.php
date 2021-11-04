@@ -7,26 +7,19 @@ use App\Model\PictureManager;
 
 class HomeController extends AbstractController
 {
-// Methode pour afficher sur le carrousel de l'accueil les dernières photos ajoutées
-    public function showLastPictures(string $date)
+    public function index()
     {
-        $pictureManager = new PictureManager();
-        $date = $pictureManager->showPictureByDate($date);
+        $pictureManager      = new PictureManager();
+        $orderByDatePictures = $pictureManager->showPictureByDate();
+     //   var_dump($orderByDatePictures);die;
+        $randomPictures      = $pictureManager->showPictureRandom();
+        //TODO recuperer les images par ranking legends
+        $bestRankingPictures = $pictureManager->showPictureRandom();
 
         return $this->twig->render('Home/index.html.twig', [
-            'date' => $date,
-            //'randomPictures'=>$randomPictures
+            'order_by_date_pictures' => $orderByDatePictures,
+            'random_pictures'        => $randomPictures,
+            'best_ranking_pictures'  => $bestRankingPictures,
         ]);
     }
-// Methode pour afficher sur le carrousel de l'accueil les photos ayant reçu le plus grand nb de votes
-    public function showPictureById(int $id)
-    {
-        $legendManager = new LegendManager();
-        $bestLegends = $legendManager->showPictureById($id);
-        return $this->twig->render('Home/index.html.twig', [
-            'bestLegends' => $bestLegends,
-        ]);
-    }
-
-
 }
