@@ -8,9 +8,16 @@
         </figure>
     </div>
     </div>
-    {{ ranks.content }}
+
+    <li class="list-group-item d-flex justify-content-end align-items-start col-12 col-sm-10 col-md-3 mx-auto my-1 rounded-3">
+    <div class="flex-grow-1">
+        <div class="fs-2">
+            <p class="text-md-center"> {{ ranks.content}} </p>
+        </div>
+    </div>
+    </li>
     <div class="container">
-        <ul class="list-group">
+        <ul class="list-group d-flex justify-content-center">">
             {% for legend in legends %}
                 <li class="list-group-item d-flex justify-content-end align-items-start col-12 col-sm-10 col-md-9 mx-auto my-1 rounded-3">
                     <div class="flex-grow-1">
@@ -21,6 +28,7 @@
                     <p>Posté par {{ legend.name }}</p>
                     <img id="photo-profil" class="img-fluid rounded-circle px-3" src="https://avatars.githubusercontent.com/{{ legend.nickname_github }}">
                     <span class="badge bg-primary ">{{ legend.ranking }}</span>
+
                 </li>
             {% endfor %}
         </ul>
