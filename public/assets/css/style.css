@@ -133,6 +133,9 @@ input:focus{
     text-overflow: ellipsis;
     font-size: 25px;
 }
+.fit-cover {
+    object-fit: cover;
+}
 
 .btn-lg {
     width: 300px;
