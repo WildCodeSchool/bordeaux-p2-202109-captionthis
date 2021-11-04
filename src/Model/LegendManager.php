@@ -19,4 +19,14 @@ class LegendManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
+    public function create(array $legendData, $pictureId, $userId): void
+    {
+        $statement = $this->pdo->prepare("
+        INSERT INTO legend (content, created_at, user_id, picture_id, ranking) 
+        VALUES (:content, NOW(), :userId, :pictureId, 0 )");
+        $statement->bindValue(':content', $legendData['inputLegend'], \PDO::PARAM_STR);
+        $statement->bindValue(':userId', $userId, \PDO::PARAM_INT);
+        $statement->bindValue(':pictureId', $pictureId, \PDO::PARAM_INT);
+        $statement->execute();
+    }
 }
