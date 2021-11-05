@@ -147,3 +147,6 @@ input:focus{
     position: relative;
 }
 
+a {
+    text-decoration: none;
+}

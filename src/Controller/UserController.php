@@ -9,16 +9,33 @@ class UserController extends AbstractController
 
     public function register(): string
     {
+        $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $userManager = new UserManager();
-            $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $userId = $userManager->create($_POST);
-            $userData = $userManager->selectOneById($userId);
-            $_SESSION['user'] = $userData;
-            header('Location: /profil?id=' . $userId);
+            $name = (trim($_POST['name']));
+            $nicknameGithub = (trim($_POST['nickname_github']));
+            $password = ($_POST['password']);
+
+            if (empty($name)) {
+                $errors['name'] = 'Merci de rentrer votre nom';
+            }
+            if (empty($nicknameGithub)) {
+                $errors['nickname_github'] = 'Merci de rentrer votre pseudo Github';
+            }
+            if (empty($password)) {
+                $errors['password'] = 'Merci de rentrer votre pseudo mot de passe';
+            }
+            if (count($errors) === 0) {
+                $userManager = new UserManager();
+                $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $userId = $userManager->create($_POST);
+                $userData = $userManager->selectOneById($userId);
+                $_SESSION['user'] = $userData;
+                header('Location: /profil?id=' . $userId);
+            }
         }
         return $this->twig->render('User/register.html.twig', [
             'register_success' => $_GET['register'] ?? null,
+            'errors'           => $errors
         ]);
     }
 
