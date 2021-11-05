@@ -37,10 +37,7 @@
         </div>
         <div class="col-12 col-sm-10 col-md-9 rounded mx-auto">
             <label for="validationTextarea" class="form-label text-ternary">Poste nous ta meilleure légende !
-                <span class="text-secondary">{% for error in errors %}
-                    {{ error }}
-                {% endfor %}
-                </span>
+                <span class="text-secondary">{% for error in errors %}{{ error }}{% endfor %}</span>
             </label>
             <input type="text" name="inputLegend" class="form-control is-invalid" id="validationTextarea" placeholder="Laisse libre cours à ton imagination" required>
         </div>
