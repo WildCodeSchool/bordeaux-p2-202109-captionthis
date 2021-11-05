@@ -6,7 +6,7 @@ class UserManager extends AbstractManager
 {
     public const TABLE = 'user';
 
-    public function create(array $userData)
+    public function create(array $userData): string
     {
         // prepared request
         $statement = $this->pdo->prepare('
@@ -19,7 +19,7 @@ class UserManager extends AbstractManager
         $statement->execute();
         return $this->pdo->lastInsertId();
     }
-    public function selectOneByName(string $name)
+    public function selectOneByName(string $name): string
     {
         $statement = $this->pdo->prepare('SELECT * FROM ' . self::TABLE . ' WHERE name=:name');
         $statement->bindValue(':name', $name, \PDO::PARAM_STR);

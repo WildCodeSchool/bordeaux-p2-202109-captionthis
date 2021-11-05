@@ -30,14 +30,14 @@ class PictureController extends AbstractController
         $pictureManager = new PictureManager();
         $picture = $pictureManager->selectOneById($pictureId);
         $legendManager = new LegendManager();
-        $legend = $legendManager->selectAllByImageId($pictureId);
+        $legends = $legendManager->selectAllByImageId($pictureId);
         $rankManager = new RankManager();
-        $rank = $rankManager->selectLegendByRanking($pictureId);
+        $bestRankingLegend = $rankManager->selectLegendByRanking($pictureId);
 
         return $this->twig->render('Picture/show.html.twig', [
             'picture' => $picture,
-            'legends' => $legend,
-            'ranks'   => $rank,
+            'legends' => $legends,
+            'bestRankingLegend'   => $bestRankingLegend,
             'errors'  => $errors
         ]);
     }
