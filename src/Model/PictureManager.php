@@ -19,7 +19,7 @@ class PictureManager extends AbstractManager
         return $statement->fetchAll();
     }
 // Methode pour afficher sur le carrousel de l'accueil les photos en random
-    public function showPictureRandom()
+    public function showPictureRandom(): array
     {
         $statement = $this->pdo->query("
         SELECT *
@@ -31,7 +31,7 @@ class PictureManager extends AbstractManager
     }
 
 // Methode pour afficher sur le carrousel de l'accueil les photos ayant reçu le plus grand nb de votes
-    public function bestRankingPicture()
+    public function bestRankingPicture(): array
     {
         $statement = $this->pdo->prepare(" 
         SELECT SUM(l.ranking) 
