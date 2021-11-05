@@ -6,31 +6,29 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-            <div class="navbar-nav fs-1">
+            <div class="navbar-nav d-flex align-items-center fs-1">
                 <a class="navbar-link text-ternary" href="/">Accueil</a>
+                <a class="nav-link dropdown-toggle offset-2" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Mon compte
+                </a>
+                <ul class="dropdown-menu text-secondary" aria-labelledby="navbarDarkDropdownMenuLink">
 
-                <a class="nav-link active text-secondary" aria-current="page" href="#">Florilège</a>
+                    <li class="offset-1"> {% if (session.user) %}
+                        <div class="text-primary">Bonjour {{ session.user.name }} ! </div></li>
+                    <li><a class="dropdown-item text-secondary" href="/profil?id={{ session.user.id }}">Profil</a></li>
+                    <li><a class="dropdown-item text-secondary" href="/logout">Déconnexion</a></li>
+                    {% else %} </li>
+                        <li><a class="dropdown-item text-secondary" href="/connection">Connexion</a></li>
+                        <li><a class="dropdown-item text-secondary" href="/registration">Inscription</a></li>
+                    {% endif %}
+                    {% if(session.user.is_admin ) %}
+                        <li><a class="dropdown-item text-secondary" href="#">Admin</a></li>
+                    {% endif %}
+
+                </ul>
                 <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                     <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Mon compte
-                            </a>
-                            <ul class="dropdown-menu text-secondary" aria-labelledby="navbarDarkDropdownMenuLink">
-
-                                <li class="offset-1"> {% if (session.user) %}
-                                   <div class="text-primary">Bonjour {{ session.user.name }} ! </div></li>
-                                <li><a class="dropdown-item text-secondary" href="/profil?id={{ session.user.id }}">Profil</a></li>
-                                <li><a class="dropdown-item text-secondary" href="/logout">Déconnexion</a></li>
-                                {% else %} </li>
-                                <li><a class="dropdown-item text-secondary" href="/connection">Connexion</a></li>
-                                <li><a class="dropdown-item text-secondary" href="/registration">Inscription</a></li>
-                                {% endif %}
-                                {% if(session.user.is_admin ) %}
-                                <li><a class="dropdown-item text-secondary" href="#">Admin</a></li>
-                                {% endif %}
-
-                             </ul>
+                        <li class="nav-item dropdown offset-5">
                         </li>
                     </ul>
                 </div>

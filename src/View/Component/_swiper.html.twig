@@ -2,12 +2,12 @@
 <div class="swiper container-fluid">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
-        {% for i in 1..10 %}
+        {% for picture in pictures %}
             <div class="swiper-slide">
                 <div class="content">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, consequatur cupiditate esse iure necessitatibus non perspiciatis quisquam temporibus vel velit. Atque corporis dolores obcaecati odit officia omnis ullam voluptate voluptatum?
                 </div>
-                <a href="/image?id={{ i }}" class="rounded mx-auto d-block"><img src="https://picsum.photos/300/200?random={{ i }}" class="rounded mx-auto d-block"></a>
+                <img src="{{ picture.url }}" class="rounded mx-auto d-block fit-cover">
             </div>
         {% endfor %}
         ...

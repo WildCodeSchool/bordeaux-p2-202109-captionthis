@@ -36,11 +36,14 @@ body{
 }
 #logo{
     height: auto;
-    width: 23%;
+    width: 17%;
     margin-right: 60px;
 }
 .navbar-toggler-icon {
     background-image: url("/assets/images/logoM.jpg") !important;
+}
+.navbar-link{
+    text-decoration: none !important;
 }
 .network{
     width:20%;
@@ -133,9 +136,15 @@ input:focus{
     text-overflow: ellipsis;
     font-size: 25px;
 }
+.fit-cover {
+    object-fit: cover;
+}
 
 .btn-lg {
     width: 300px;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: relative;
 }
 
 a {
