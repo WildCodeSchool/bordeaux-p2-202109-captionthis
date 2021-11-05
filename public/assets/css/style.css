@@ -3,60 +3,150 @@
     --secondary-color: #ff0000;
     --ternary-color: #f5f5f5;
 }
-.navbar {
+.bg-primary {
     background-color: var(--primary-color) !important;
 }
-
-#logo{
-    height: auto;
-    width: 100px;
-    margin-right: 60px;
+.bg-secondary {
+    background-color: var(--secondary-color) !important;
 }
-#bootstrap-override .navbar-toggler-icon {
-    background-color: var(--primary-color) !important;
-    background-image: url("/assets/images/logoM.jpg");
+.bg-ternary {
+    background-color: var(--ternary-color);
 }
-
 .text-primary {
+    color: var(--primary-color) !important;
+}
+.text-secondary {
     color: var(--secondary-color) !important;
 }
-
-#bootstrap-override .navbar-brand {
-    color: var(--secondary-color) !important;
+.text-ternary {
+    color: var(--ternary-color) !important;
 }
-#bootstrap-override .nav-link{
-    color: var(--secondary-color) !important;
+border-primary {
+    border-color: var(--primary-color) !important;
 }
-.container-fluid{
-    display: flex;
-    justify-content: space-between;
+.border-secondary {
+    border-color: var(--secondary-color) !important;
 }
-
-
-.reseaux{
-    width:30%;
+.border-ternary {
+    border-color: var(--ternary-color) !important;
 }
-footer{
-    background-color: var(--primary-color);
-}
-.copyright{
-    color: var(--secondary-color);
-}
-.container {
-    padding-top:5%;
-}
-
 
 body{
-    background-color: var(--primary-color) !important;
     font-family: 'Bebas Neue', cursive;
 }
-#p {
-    color: var(--ternary-color);
+#logo{
+    height: auto;
+    width: 17%;
+    margin-right: 60px;
+}
+.navbar-toggler-icon {
+    background-image: url("/assets/images/logoM.jpg") !important;
+}
+.navbar-link{
+    text-decoration: none !important;
+}
+.network{
+    width:20%;
+}
+.best-legend{
     width: 300px;
 }
-h2 {
-    color: var(--secondary-color);
-    text-decoration: underline white 1px;
+figure {
+    width: 400px;
+    height: 300px;
+}
+img {
+    width: 100%;
+    height: 100%;
 }
 
+.container{
+    height: 100%;
+    align-content: center;
+}
+
+.card{
+    height: 370px;
+    margin-top: 20px;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+input{
+    font-family: arial;
+}
+
+.card-header h3{
+    color: white;
+}
+
+.input-group-prepend span{
+    width: 50px;
+    color: black;
+    border:0 !important;
+}
+
+input:focus{
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+
+}
+
+.login_btn{
+    color: black;
+    width: 100px;
+    margin-top: 50px;
+
+}
+
+.login_btn:hover{
+    color: black;
+    background-color: white;
+}
+
+.links{
+    color: white;
+}
+
+.profile{
+    margin-top: 40px;
+}
+
+
+#picture-show {
+    max-width: 700px;
+    height: auto;
+}
+#photo-profil {
+    max-width: 80px;
+    height: auto;
+}
+.swiper {
+    width: 100vw;
+    height: 300px;
+}
+.content {
+    color: white;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.68);
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 25px;
+}
+.fit-cover {
+    object-fit: cover;
+}
+
+.btn-lg {
+    width: 300px;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+}

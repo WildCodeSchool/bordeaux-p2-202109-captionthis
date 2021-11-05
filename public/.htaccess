@@ -1,5 +1,5 @@
 # This will prevent generating "Not Found" error in browser
-# Then we will manually do the rest to produce page for user
+# Then we will manually do the rest to produce page for User
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f

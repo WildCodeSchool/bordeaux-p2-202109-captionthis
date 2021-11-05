@@ -1,45 +1,24 @@
 {% extends 'layout.html.twig' %}
-
+{% block stylesheet %}
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+{% endblock %}
 {% block content %}
-    <div class="container" >
-    <h2 class="text-center" >Les petites dernières</h2>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-4" >
-                <img src="https://loremflickr.com/300/200?random=1" class="rounded mx-auto d-block">
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4" >
-                <img src="https://loremflickr.com/300/200?random=2" class="rounded mx-auto d-block">
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4" >
-                <img src="https://loremflickr.com/300/200?random=3" class="rounded mx-auto d-block">
-            </div>
-        </div>
-    <h2 class="text-center">Le TOP du TOP</h2>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-4" >
-                <img src="https://loremflickr.com/300/200?random=4" class="rounded mx-auto d-block">
-                <p id="p" class="rounded mx-auto d-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis debitis dolorum, eaque, eius.</p>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4" >
-                <img src="https://loremflickr.com/300/200?random=5" class="rounded mx-auto d-block">
-                <p id="p" class="rounded mx-auto d-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis debitis dolorum, eaque, eius.</p>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4" >
-                <img src="https://loremflickr.com/300/200?random=6" class="rounded mx-auto d-block">
-                <p id="p" class="rounded mx-auto d-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis debitis dolorum, eaque, eius.</p>
-            </div>
-        </div>
-    <h2 class="text-center">On ne savait pas quoi mettre ici</h2>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-4" >
-                <img src="https://loremflickr.com/300/200?random=17" class="rounded mx-auto d-block">
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4" >
-                <img src="https://loremflickr.com/300/200?random=8" class="rounded mx-auto d-block">
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4" >
-                <img src="https://loremflickr.com/300/200?random=9" class="rounded mx-auto d-block">
-            </div>
-        </div>
+<div class="container-fluid" >
+    <div class="home-pictures pt-5">
+        <h2 class="text-center text-secondary" >Les petites dernières</h2>
+            {% set pictures = order_by_date_pictures %}
+            {% include 'Component/_swiper.html.twig' %}
+        <h2 class="text-center text-secondary">Le TOP du TOP</h2>
+            {% set pictures = best_ranking_pictures %}
+            {% include 'Component/_swiper.html.twig' %}
+        <h2 class="text-center text-secondary">On ne savait pas quoi mettre ici</h2>
+            {% set pictures = random_pictures %}
+            {% include 'Component/_swiper.html.twig' %}
+    </div>
 </div>
+
+    {% endblock %}
+{% block javascript %}
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="assets/js/swiper.js"></script>
 {% endblock %}
