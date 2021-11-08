@@ -22,8 +22,7 @@ class PictureController extends AbstractController
             }
             if (count($errors) === 0) {
                 $legendManager = new LegendManager();
-                //TODO get user id from $_SESSION
-                $userId = 3;
+                $userId = $_SESSION['user']['id'];
                 $legendManager->create($_POST, $pictureId, $userId);
             }
         }
