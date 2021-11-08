@@ -13,6 +13,7 @@ return [
     'connection'   => ['UserController', 'connect',],
     'logout'       => ['UserController', 'logout',],
     'profil'       => ['UserController', 'profile', ['id']],
+    'admin'        => ['AdminController', 'showLegendForAdmin'],
 
     'items'        => ['ItemController', 'index',],
     'items/edit'   => ['ItemController', 'edit', ['id']],

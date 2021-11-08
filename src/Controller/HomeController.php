@@ -11,7 +11,6 @@ class HomeController extends AbstractController
     {
         $pictureManager      = new PictureManager();
         $orderByDatePictures = $pictureManager->showPictureByDate();
-     //   var_dump($orderByDatePictures);die;
         $randomPictures      = $pictureManager->showPictureRandom();
         //TODO recuperer les images par ranking legends
         $bestRankingPictures = $pictureManager->showPictureRandom();

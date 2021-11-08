@@ -29,4 +29,16 @@ class LegendManager extends AbstractManager
         $statement->bindValue(':pictureId', $pictureId, \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    public function selectAllWithName()
+    {
+        $statement = $this->pdo->prepare("
+        SELECT * FROM caption_this.legend
+        JOIN user u
+        ON legend.user_id = u.id
+        ORDER BY legend.created_at DESC
+        ");
+        $statement->execute();
+        return $statement->fetchAll();
+    }
 }
