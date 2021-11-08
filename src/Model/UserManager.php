@@ -6,7 +6,7 @@ class UserManager extends AbstractManager
 {
     public const TABLE = 'user';
 
-    public function create(array $userData): mixed
+    public function create(array $userData): int
     {
         // prepared request
         $statement = $this->pdo->prepare('
@@ -17,7 +17,7 @@ class UserManager extends AbstractManager
         $statement->bindValue(':password', $userData['password'], \PDO::PARAM_STR);
         $statement->bindValue(':nickname_github', $userData['nickname_github'], \PDO::PARAM_STR);
         $statement->execute();
-        return $this->pdo->lastInsertId();
+        return (int)$this->pdo->lastInsertId();
     }
     public function selectOneByName(string $name)
     {
