@@ -6,7 +6,7 @@ class UserManager extends AbstractManager
 {
     public const TABLE = 'user';
 
-    public function create(array $userData): int
+    public function create(array $userData)
     {
         // prepared request
         $statement = $this->pdo->prepare('
