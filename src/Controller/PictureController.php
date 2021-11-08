@@ -32,7 +32,6 @@ class PictureController extends AbstractController
         $legends = $legendManager->selectAllByImageId($pictureId);
         $rankManager = new RankManager();
         $bestRankingLegend = $rankManager->selectLegendByRanking($pictureId);
-
         return $this->twig->render('Picture/show.html.twig', [
             'picture' => $picture,
             'legends' => $legends,

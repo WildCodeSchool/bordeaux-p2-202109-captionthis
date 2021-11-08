@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\UserManager;
+use App\Model\ProfileManager;
 
 class UserController extends AbstractController
 {
@@ -63,9 +64,12 @@ class UserController extends AbstractController
     public function profile(int $id): string
     {
         $userManager = new UserManager();
-        $userData = $userManager -> selectOneById($id);
+        $userData = $userManager-> selectOneById($id);
+        $profileManager = new ProfileManager();
+        $userLegends = $profileManager->selectAllLegendsByUser($id);
         return $this->twig->render('User/profile.html.twig', [
             'user_data' => $userData,
+            'user_legends' => $userLegends,
             ]);
     }
 }
