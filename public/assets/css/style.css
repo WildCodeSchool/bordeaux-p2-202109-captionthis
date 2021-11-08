@@ -149,3 +149,15 @@ input:focus{
 a {
     text-decoration: none;
 }
+
+.btn-outline-danger {
+    color: var(--ternary-color);
+}
+.btn-outline-danger:hover {
+    color: var(--ternary-color);
+    background-color: var(--secondary-color);
+}
+
+.fas fa-star:hover {
+    color: var(--ternary-color);
+}
