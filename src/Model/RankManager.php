@@ -5,7 +5,7 @@ namespace App\Model;
 class RankManager extends AbstractManager
 {
     public const TABLE = 'legend';
-    public function selectLegendByRanking(int $id)
+    public function selectLegendByRanking(int $id): array
     {
         $statement = $this->pdo->prepare("
         SELECT *, l.id AS legend_id

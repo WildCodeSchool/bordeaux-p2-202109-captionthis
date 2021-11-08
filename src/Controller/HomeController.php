@@ -7,7 +7,7 @@ use App\Model\PictureManager;
 
 class HomeController extends AbstractController
 {
-    public function index()
+    public function index(): string
     {
         $pictureManager      = new PictureManager();
         $orderByDatePictures = $pictureManager->showPictureByDate();
