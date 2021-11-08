@@ -8,7 +8,7 @@ use App\Model\RankManager;
 
 class PictureController extends AbstractController
 {
-    public function show($pictureId)
+    public function show(int $pictureId)
     {
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
