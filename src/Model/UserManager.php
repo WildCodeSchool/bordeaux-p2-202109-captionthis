@@ -8,7 +8,6 @@ class UserManager extends AbstractManager
 
     public function create(array $userData): int
     {
-        // prepared request
         $statement = $this->pdo->prepare('
             INSERT INTO user (name, password, created_at, nickname_github, is_admin)
             VALUES(:name, :password, NOW(), :nickname_github, false)
