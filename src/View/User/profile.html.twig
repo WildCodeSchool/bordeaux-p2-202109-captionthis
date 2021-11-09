@@ -11,6 +11,13 @@
            <div class ="photoProfil">
                 <img class=" photoProfil img-fluid rounded-circle w-75  " src="https://avatars.githubusercontent.com/{{ user_data.nickname_github }}">
            </div>
+           <div class="picture-url fs-4">
+               <form method="POST">
+                   <input type="url" id="url" name="url" placeholder="URL d'une image" />
+                   <button> Submit </button>
+               </form>
+
+           </div>
        </div>
 
             <div class="d-flex flex-column fs-3">
@@ -33,7 +40,6 @@
                 {% endfor %}
                  </ul>
             </div>
-
 
     </div>
 
