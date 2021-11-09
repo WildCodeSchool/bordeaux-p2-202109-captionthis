@@ -10,10 +10,19 @@ class AdminController extends AbstractController
     public function showLegendForAdmin()
     {
         $legendManager = new LegendManager();
-        $legendManager = $legendManager->selectAllWithName();
+        $legends = $legendManager->selectAllWithName();
 
         return $this->twig->render('admin/admin.html.twig', [
-            'legendManager' => $legendManager,
+            'legendManager' => $legends,
         ]);
+    }
+    public function deleteOneLegend()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $delete = $_POST['delete'];
+            $legendManager = new legendManager();
+            $legendManager->deleteOneLegend($delete);
+            header('Location:/admin');
+        }
     }
 }

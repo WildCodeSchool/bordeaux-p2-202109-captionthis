@@ -10,7 +10,12 @@
                         </div>
                     </div>
                     <p class="fs-4">Posté par {{ legendManager.name }}</p>
-                </li></a>
+                        <form action="/admin/delete" method="POST" onsubmit="return confirm('T es vraiment chaud pour supprimer ?')">
+                            <input type="hidden" name="delete" value="{{ legendManager.id }}">
+                            <button class="m-2"><i class="far fa-trash-alt"></i></button>
+                        </form>
+                </li>
+                </a>
             {% endfor %}
         </ul>
     </div>
