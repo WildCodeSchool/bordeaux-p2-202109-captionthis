@@ -152,12 +152,24 @@ a {
 
 .btn-outline-danger {
     color: var(--ternary-color);
+    border: none !important;
 }
-.btn-outline-danger:hover {
+
+.btn-check:focus + .btn-outline-danger, .btn-outline-danger:focus {
+    color: var(--ternary-color);
+    background-color: var(--secondary-color);
+    box-shadow: none !important;
+}
+.btn-check:checked + .btn-outline-danger, .btn-check:active + .btn-outline-danger, .btn-outline-danger:active, .btn-outline-danger.active, .btn-outline-danger.dropdown-toggle.show {
     color: var(--ternary-color);
     background-color: var(--secondary-color);
 }
-
-.fas fa-star:hover {
+.btn-check:checked + .btn-outline-danger:focus, .btn-check:active + .btn-outline-danger:focus, .btn-outline-danger:active:focus, .btn-outline-danger.active:focus, .btn-outline-danger.dropdown-toggle.show:focus {
     color: var(--ternary-color);
+    background-color: var(--secondary-color);
+    box-shadow: none !important;
+}
+.btn-outline-danger:disabled, .btn-outline-danger.disabled {
+    color: var(--ternary-color);
+    background-color: var(--secondary-color);
 }
