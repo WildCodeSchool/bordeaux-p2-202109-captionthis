@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="container my-5">
+        <ul class="list-group d-flex justify-content-center">
+            {% for legendManager in legendManager %}
+                <a href="/image?id={{ legendManager.picture_id }}"><li class="list-group-item d-flex justify-content-end align-items-start col-12 col-sm-10 col-md-9 mx-auto my-1 rounded-3">
+                    <div class="flex-grow-1">
+                        <div class="fs-2">
+                            {{ legendManager.content }}
+                        </div>
+                    </div>
+                    <p class="fs-4">Posté par {{ legendManager.name }}</p>
+                </li></a>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
