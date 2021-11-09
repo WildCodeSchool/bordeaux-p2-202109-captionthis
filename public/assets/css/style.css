@@ -145,6 +145,9 @@ input:focus{
 .navbar-expand-lg .navbar-nav .dropdown-menu {
     position: relative;
 }
+#avatarnav {
+    width: 50px;
+}
 
 a {
     text-decoration: none;

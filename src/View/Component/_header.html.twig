@@ -7,24 +7,21 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
             <div class="navbar-nav d-flex align-items-center fs-1">
-                <a class="navbar-link text-ternary" href="/">Accueil</a>
-                <a class="nav-link dropdown-toggle offset-2" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Mon compte
-                </a>
-                <ul class="dropdown-menu text-secondary" aria-labelledby="navbarDarkDropdownMenuLink">
-
-                    <li class="offset-1"> {% if (session.user) %}
-                        <div class="text-primary">Bonjour {{ session.user.name }} ! </div></li>
-                    <li><a class="dropdown-item text-secondary" href="/profil?id={{ session.user.id }}">Profil</a></li>
-                    <li><a class="dropdown-item text-secondary" href="/logout">Déconnexion</a></li>
-                    {% else %} </li>
-                        <li><a class="dropdown-item text-secondary" href="/connection">Connexion</a></li>
-                        <li><a class="dropdown-item text-secondary" href="/registration">Inscription</a></li>
-                    {% endif %}
-                    {% if(session.user.is_admin ) %}
-                        <li><a class="dropdown-item text-secondary" href="/admin">Admin</a></li>
-                    {% endif %}
-
+                {% if (session.user) %}
+                    <li class="text-ternary mx-3">Bonjour {{ session.user.name }} !</li>
+                    <li> <img id="avatarnav" class=" photoProfil img-fluid rounded-circle" src="https://avatars.githubusercontent.com/{{ session.user.nickname_github }}"></li>
+                {% endif %}
+                <li><a class="navbar-link text-secondary mx-3" href="/">Accueil</a></li>
+                {% if(session.user.is_admin ) %}
+                    <li><a class="navbar-link text-secondary mx-3" href="/admin">Administration</a></li>
+                {% endif %}
+                {% if (session.user) %}
+                    <li><a class="navbar-link text-secondary mx-3" href="/profil?id={{ session.user.id }}">Profil</a></li>
+                    <li><a class="navbar-link text-ternary mx-3 fs-4" href="/logout">Déconnexion</a></li>
+                {% else %} </li>
+                    <li><a class="navbar-item text-ternary mx-3 fs-4" href="/connection">Connexion</a></li>
+                    <li><a class="navbar-item text-ternary mx-3 fs-4" href="/registration">Inscription</a></li>
+                {% endif %}
                 </ul>
                 <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                     <ul class="navbar-nav">

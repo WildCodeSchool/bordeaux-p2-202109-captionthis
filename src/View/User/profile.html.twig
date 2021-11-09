@@ -19,7 +19,7 @@
                 {% for user_legend in user_legends %}
                      <li class="list-group">
                          <div class="meme p-2">
-                             <img class="w-25" src="{{ user_legend.url }}" alt="meme">
+                             <a href="/image?id={{ user_legend.picture_id }}"><img class="w-25" src="{{ user_legend.url }}" alt="meme"></a>
                          </div>
                         <div class="d-flex flex-row fs-3 p-2">
                                 {{ user_legend.content }}
