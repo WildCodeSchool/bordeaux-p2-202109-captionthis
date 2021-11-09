@@ -25,9 +25,12 @@
                         </div>
                     </div>
                     <p>Posté par {{ legends.name }}</p>
-                    <img id="photo-profil" class="img-fluid rounded-circle px-3" src="https://avatars.githubusercontent.com/{{ legends.nickname_github }}">
-                    <span class="badge bg-primary ">{{ legends.ranking }} <button type="button" class=" btn btn-outline-danger"><i class="fas fa-star"></i></button></span>
-
+                    <img id="photo-profil" class="img-fluid rounded-circle px-3" src="https://avatars.githubusercontent.com/{{ legends.nickname_github }}" alt="avatars github">
+                    <span class="badge bg-primary ">{{ legends.ranking }}
+                        <form  method="post" name="ranking">
+                            <button type="button" class=" btn btn-outline-danger"><i class="fas fa-star"></i></button>
+                        </form>
+                    </span>
                 </li>
             {% endfor %}
         </ul>

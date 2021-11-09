@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\ItemManager;
 use  App\Model\LegendManager;
 use  App\Model\PictureManager;
 use App\Model\RankManager;
@@ -35,8 +36,21 @@ class PictureController extends AbstractController
         return $this->twig->render('Picture/show.html.twig', [
             'picture' => $picture,
             'legends' => $legends,
-            'bestRankingLegend'   => $bestRankingLegend,
-            'errors'  => $errors
+            'bestRankingLegend' => $bestRankingLegend,
+            'errors' => $errors
         ]);
+    }
+
+    public function add(): int
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $ranking = array_map('trim', $_POST);
+            header('Location:/Picture/show.html.twig' . $ranking);
+        }
+             $rankManager = new RankManager();
+             $ranking = $rankManager->insertRank((array)$ranking);
+             return $this->twig->render('Picture/show.html.twig', [
+            'ranking' => $ranking,
+             ]);
     }
 }

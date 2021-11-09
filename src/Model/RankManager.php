@@ -19,4 +19,14 @@ class RankManager extends AbstractManager
         $statement->execute();
         return $statement->fetch();
     }
+
+    public function insertRank(array $ranking): int
+    {
+        $statement = $this->pdo->prepare("
+        INSERT INTO legend (ranking) 
+        VALUES (:ranking)");
+        $statement->bindValue('ranking', $ranking['ranking'], \PDO::PARAM_STR);
+        $statement->execute();
+        return (int)$this->pdo->lastInsertId();
+    }
 }
