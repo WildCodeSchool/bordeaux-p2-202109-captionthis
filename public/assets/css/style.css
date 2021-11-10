@@ -177,6 +177,11 @@ a {
     color: var(--ternary-color);
     background-color: var(--secondary-color);
 }
+
+.legends-profil{
+    margin-top : 50px
+}
+
 .rank-number {
     position: absolute;
     font-size: 8rem;
