@@ -12,8 +12,7 @@ class HomeController extends AbstractController
         $pictureManager      = new PictureManager();
         $orderByDatePictures = $pictureManager->showPictureByDate();
         $randomPictures      = $pictureManager->showPictureRandom();
-        //TODO recuperer les images par ranking legends
-        $bestRankingPictures = $pictureManager->showPictureRandom();
+        $bestRankingPictures = $pictureManager->bestRankingPicture();
 
         return $this->twig->render('Home/index.html.twig', [
             'order_by_date_pictures' => $orderByDatePictures,

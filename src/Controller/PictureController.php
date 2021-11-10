@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Model\ItemManager;
 use  App\Model\LegendManager;
 use  App\Model\PictureManager;
 use App\Model\RankManager;
+use http\Header;
 
 class PictureController extends AbstractController
 {
@@ -35,8 +37,17 @@ class PictureController extends AbstractController
         return $this->twig->render('Picture/show.html.twig', [
             'picture' => $picture,
             'legends' => $legends,
-            'bestRankingLegend'   => $bestRankingLegend,
-            'errors'  => $errors
+            'bestRankingLegend' => $bestRankingLegend,
+            'errors' => $errors
         ]);
+    }
+
+    public function addRank($legendId, $pictureId)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $rankManager = new RankManager();
+            $rankManager->updateRankLegend($legendId);
+            header('Location:/image?id=' . $pictureId);
+        }
     }
 }
