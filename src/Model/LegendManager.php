@@ -33,12 +33,27 @@ class LegendManager extends AbstractManager
     public function selectAllWithName()
     {
         $statement = $this->pdo->prepare("
-        SELECT * FROM caption_this.legend
+        SELECT l.id, l.content, u.name, u.nickname_github, l.picture_id FROM legend l
         JOIN user u
-        ON legend.user_id = u.id
-        ORDER BY legend.created_at DESC
+        ON l.user_id = u.id
+        ORDER BY l.created_at DESC
         ");
         $statement->execute();
         return $statement->fetchAll();
+    }
+
+    public function deleteLegend(int $id)
+    {
+        $statement = $this->pdo->prepare("DELETE legend FROM caption_this.legend WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+    }
+
+    public function update(array $legend): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `content` = :content WHERE id=:id");
+        $statement->bindValue('id', $legend['idLegend'], \PDO::PARAM_INT);
+        $statement->bindValue('content', $legend['content'], \PDO::PARAM_STR);
+        return $statement->execute();
     }
 }
