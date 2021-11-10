@@ -1,24 +1,25 @@
 <!-- Slider main container -->
+
 <div class="swiper container-fluid">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
+
         {% for picture in pictures %}
             <div class="swiper-slide">
+                {% if top %}
+                    <span class="rank-number">{{ loop.index }}</span>
+                {% endif %}
                 <div class="content">
-                    <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. -->
+                   {{ top ? loop.index : ''}} Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </div>
-                <a href="/image?id={{ picture.id }}"><img src="{{ picture.url }}" class="rounded mx-auto d-block fit-cover"></a>
+                <a href="/image?id={{ picture.pictureId }}"><img src="{{ picture.url }}" class="rounded mx-auto d-block fit-cover"></a>
             </div>
         {% endfor %}
         ...
     </div>
-    <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
 
     <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev text-secondary"></div>
+    <div class="swiper-button-next text-secondary"></div>
 
-    <!-- If we need scrollbar -->
-    <div class="swiper-scrollbar"></div>
 </div>

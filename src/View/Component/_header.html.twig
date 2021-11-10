@@ -13,7 +13,7 @@
                 {% endif %}
                 <li><a class="navbar-link text-secondary mx-3" href="/">Accueil</a></li>
                 {% if(session.user.is_admin ) %}
-                    <li><a class="navbar-link text-secondary mx-3" href="/admin">Administration</a></li>
+                    <li><a class="navbar-link text-secondary mx-3" href="/admin">Admin</a></li>
                 {% endif %}
                 {% if (session.user) %}
                     <li><a class="navbar-link text-secondary mx-3" href="/profil?id={{ session.user.id }}">Profil</a></li>
