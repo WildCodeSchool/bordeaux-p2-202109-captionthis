@@ -6,6 +6,7 @@ use App\Model\ItemManager;
 use  App\Model\LegendManager;
 use  App\Model\PictureManager;
 use App\Model\RankManager;
+use http\Header;
 
 class PictureController extends AbstractController
 {
@@ -41,16 +42,12 @@ class PictureController extends AbstractController
         ]);
     }
 
-    public function add(): int
+    public function addRank($legendId, $pictureId)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $ranking = array_map('trim', $_POST);
-            header('Location:/Picture/show.html.twig' . $ranking);
+            $rankManager = new RankManager();
+            $rankManager->updateRankLegend($legendId);
+            header('Location:/image?id=' . $pictureId);
         }
-             $rankManager = new RankManager();
-             $ranking = $rankManager->insertRank((array)$ranking);
-             return $this->twig->render('Picture/show.html.twig', [
-            'ranking' => $ranking,
-             ]);
     }
 }

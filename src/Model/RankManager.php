@@ -5,6 +5,7 @@ namespace App\Model;
 class RankManager extends AbstractManager
 {
     public const TABLE = 'legend';
+
     public function selectLegendByRanking(int $id): array
     {
         $statement = $this->pdo->prepare("
@@ -20,13 +21,25 @@ class RankManager extends AbstractManager
         return $statement->fetch();
     }
 
-    public function insertRank(array $ranking): int
+//    public function selectRankLegend(array $ranking): int
+//    {
+//        $statement = $this->pdo->prepare("
+//       SELECT ranking
+//       FROM legend
+//       WHERE picture_id=:id;
+//        ");
+//        $statement->bindValue('addRanking', $ranking['addRanking'], \PDO::PARAM_INT);
+//        $statement->execute();
+//        return $statement->fetch();
+//    }
+    public function updateRankLegend($legendId)
     {
         $statement = $this->pdo->prepare("
-        INSERT INTO legend (ranking) 
-        VALUES (:ranking)");
-        $statement->bindValue('ranking', $ranking['ranking'], \PDO::PARAM_STR);
+        UPDATE legend
+        SET ranking = ranking+1
+        WHERE id=:id
+        ");
+        $statement->bindValue(':id', $legendId, \PDO::PARAM_INT);
         $statement->execute();
-        return (int)$this->pdo->lastInsertId();
     }
 }
