@@ -33,6 +33,7 @@ class PictureManager extends AbstractManager
 // Methode pour afficher sur le carrousel de l'accueil les photos ayant reçu le plus grand nb de votes
     public function bestRankingPicture(): array
     {
+        $this->pdo->query("SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
         $statement = $this->pdo->prepare(" 
         SELECT SUM(l.ranking) 
         as rankingSum, l.id 
