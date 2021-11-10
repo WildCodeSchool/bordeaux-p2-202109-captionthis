@@ -1,13 +1,18 @@
 <!-- Slider main container -->
+
 <div class="swiper container-fluid">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
+
         {% for picture in pictures %}
             <div class="swiper-slide">
+                {% if top %}
+                    <span class="rank-number">{{ loop.index }}</span>
+                {% endif %}
                 <div class="content">
-                    <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. -->
+                   {{ top ? loop.index : ''}} Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </div>
-                <a href="/image?id={{ picture.id }}"><img src="{{ picture.url }}" class="rounded mx-auto d-block fit-cover"></a>
+                <a href="/image?id={{ picture.pictureId }}"><img src="{{ picture.url }}" class="rounded mx-auto d-block fit-cover"></a>
             </div>
         {% endfor %}
         ...
