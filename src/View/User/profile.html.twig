@@ -2,45 +2,43 @@
 
 {% block content %}
 
-    <div class="profile text-ternary fs-1 d-inline-flex offset-1">
-
-       <div class="data-profil d-flex flex-column ">
-           <div class="pseudo-profil offset-2">
-              {{  user_data.name }}
-           </div>
-           <div class ="photoProfil">
-                <img class=" photoProfil img-fluid rounded-circle w-75  " src="https://avatars.githubusercontent.com/{{ user_data.nickname_github }}">
-           </div>
-           <div class="picture-url fs-4">
-               <form method="POST">
-                   <input type="url" id="url" name="url" placeholder="URL d'une image" />
-                   <button> Submit </button>
-               </form>
-
-           </div>
-       </div>
-
-            <div class="d-flex flex-column fs-3">
-                Tes légendes postées :
-                 <ul class="list-group">
-                {% for user_legend in user_legends %}
+    <div class="profile text-ternary fs-1 ">
+        <div class="container">
+            <div class="row justify-content-center">
+                 <div class="pseudo-profil">
+                     {{  user_data.name }}
+                 </div>
+                <div class ="photoProfil">
+                    <img class="img-fluid rounded-circle w-25 " src="https://avatars.githubusercontent.com/{{ user_data.nickname_github }}">
+                </div>
+                <div class="picture-url fs-4">
+                    <p> Poste nous une photo rigolote </p>
+                    <form method="POST">
+                        <input type="url" id="url" name="url" placeholder="URL d'une image" />
+                        <button> Submit </button>
+                    </form>
+                </div>
+                <div class="legends-profil fs-2">
+                     Tes légendes postées :
+                    <ul class="list-group row">
+                        {% for user_legend in user_legends %}
                      <li class="list-group">
-                         <div class="meme p-2">
+                         <div class="col meme">
                              <a href="/image?id={{ user_legend.picture_id }}"><img class="w-25" src="{{ user_legend.url }}" alt="meme"></a>
                          </div>
-                        <div class="d-flex flex-row fs-3 p-2">
+                         <div class="d-flex flex-column fs-3 col ">
                                 {{ user_legend.content }}
-                            <div class="fs-5 p-2 text-secondary">
+                            <div class="fs-5 text-secondary">
                                 {{ user_legend.ranking }} votes
                             </div>
                         </div>
-
-
                      </li>
-                {% endfor %}
-                 </ul>
+                        {% endfor %}
+                   </ul>
+                </div>
             </div>
-
+        </div>
     </div>
+
 
 {% endblock %}
