@@ -1,5 +1,10 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
+    <form method="POST">
+        <input type="url" id="url" name="url" placeholder="URL" />
+        <button> Submit </button>
+    </form>
+
     <div class="container my-5">
         <ul class="list-group d-flex justify-content-center">
             {% for legendManager in legendManager %}

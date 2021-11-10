@@ -70,19 +70,14 @@ img {
     margin-top: 20px;
     margin-bottom: auto;
     width: 400px;
-    background-color: rgba(0,0,0,0.5) !important;
+
 }
 input{
     font-family: arial;
 }
 
-.card-header h3{
-    color: white;
-}
-
 .input-group-prepend span{
     width: 50px;
-    color: black;
     border:0 !important;
 }
 
@@ -93,8 +88,7 @@ input:focus{
 }
 
 .login_btn{
-    color: black;
-    width: 100px;
+
     margin-top: 50px;
 
 }
@@ -104,17 +98,15 @@ input:focus{
     background-color: white;
 }
 
-.links{
-    color: white;
-}
-
 .profile{
     margin-top: 40px;
 }
 
-#picture-show {
-    max-width: 700px;
-    height: auto;
+#picture-background{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 400px;
 }
 #photo-profil {
     max-width: 80px;
