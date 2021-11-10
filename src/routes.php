@@ -14,7 +14,8 @@ return [
     'logout'       => ['UserController', 'logout',],
     'profil'       => ['UserController', 'profile', ['id']],
     'admin'        => ['AdminController', 'showLegendForAdmin'],
-    'admin/delete' => ['AdminController', 'deleteOneLegend'],
+    'admin/delete' => ['AdminController', 'deleteLegend'],
+    'admin/update' => ['AdminController', 'updateLegend',['id']],
 
     'items'        => ['ItemController', 'index',],
     'items/edit'   => ['ItemController', 'edit', ['id']],
