@@ -115,6 +115,10 @@ input:focus{
 .swiper {
     height: 300px;
 }
+.home-pictures h2 {
+    margin-top: 50px;
+    font-size: 3rem;
+}
 
 .content {
     color: white;
