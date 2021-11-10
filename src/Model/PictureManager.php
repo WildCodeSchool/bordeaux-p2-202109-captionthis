@@ -36,9 +36,8 @@ class PictureManager extends AbstractManager
         $this->pdo->query("SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
         $statement = $this->pdo->prepare(" 
         SELECT SUM(l.ranking) 
-        as rankingSum, l.id 
-        as legendId, l.content, l.ranking, p.id
-        as pictureId, p.url
+        as rankingSum, l.id
+        as legendId, l.content, l.ranking, p.id, p.url
         FROM legend l
         JOIN picture p 
         ON l.picture_id=p.id
