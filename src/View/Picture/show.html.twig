@@ -17,17 +17,20 @@
     </li>
     <div class="container">
         <ul class="list-group d-flex justify-content-center">
-            {% for legends in legends %}
+            {% for legend in legends %}
                 <li class="list-group-item d-flex justify-content-end align-items-start col-12 col-sm-10 col-md-9 mx-auto my-1 rounded-3">
                     <div class="flex-grow-1">
                         <div class="fs-2">
-                            {{ legends.content }}
+                            {{ legend.content }}
                         </div>
                     </div>
-                    <p>Posté par {{ legends.name }}</p>
-                    <img id="photo-profil" class="img-fluid rounded-circle px-3" src="https://avatars.githubusercontent.com/{{ legends.nickname_github }}">
-                    <span class="badge bg-primary ">{{ legends.ranking }} <button type="button" class=" btn btn-outline-danger"><i class="fas fa-star"></i></button></span>
-
+                    <p>Posté par {{ legend.name }}</p>
+                    <img id="photo-profil" class="img-fluid rounded-circle px-3" src="https://avatars.githubusercontent.com/{{ legend.nickname_github }}" alt="avatars github">
+                    <span class="badge bg-primary ">{{ legend.ranking }}
+                        <form  action="image/rank?legendId={{ legend.legend_id }}&pictureId={{ picture.id }}" method="POST" >
+                            <button type="submit"  class=" btn btn-outline-danger"><i class="fas fa-star"></i></button>
+                        </form>
+                    </span>
                 </li>
             {% endfor %}
         </ul>

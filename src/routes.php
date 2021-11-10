@@ -14,6 +14,7 @@ return [
     'logout'       => ['UserController', 'logout',],
     'profil'       => ['UserController', 'profile', ['id']],
     'admin'        => ['AdminController', 'showLegendForAdmin'],
+    'image/rank'    => ['PictureController', 'addRank', ['legendId', 'pictureId']],
 
     'items'        => ['ItemController', 'index',],
     'items/edit'   => ['ItemController', 'edit', ['id']],
