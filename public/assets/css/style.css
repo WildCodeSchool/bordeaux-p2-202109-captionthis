@@ -113,9 +113,9 @@ input:focus{
     height: auto;
 }
 .swiper {
-    /*width: 100vw;*/
     height: 300px;
 }
+
 .content {
     color: white;
     position: absolute;
