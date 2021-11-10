@@ -181,7 +181,7 @@ a {
     position: absolute;
     font-size: 8rem;
     color: white;
-    opacity: .7;
-    left: 75px;
-    top: 50px;
+    /*opacity: .7;*/
+    right: 152px;
+    top: 127px;
 }
