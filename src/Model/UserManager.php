@@ -18,7 +18,7 @@ class UserManager extends AbstractManager
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
-    public function selectOneByName(string $name): array
+    public function selectOneByName(string $name)
     {
         $statement = $this->pdo->prepare('SELECT * FROM ' . self::TABLE . ' WHERE name=:name');
         $statement->bindValue(':name', $name, \PDO::PARAM_STR);
