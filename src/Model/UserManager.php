@@ -23,6 +23,10 @@ class UserManager extends AbstractManager
         $statement = $this->pdo->prepare('SELECT * FROM ' . self::TABLE . ' WHERE name=:name');
         $statement->bindValue(':name', $name, \PDO::PARAM_STR);
         $statement->execute();
-        return $statement->fetch();
+        $result = $statement->fetch();
+        if (!$result) {
+            $result = [];
+        }
+        return $result;
     }
 }

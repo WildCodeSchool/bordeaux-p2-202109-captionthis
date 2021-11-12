@@ -22,6 +22,11 @@
                                     </div>
                                     <input type="password" class="form-control" placeholder="Mot de passe" name="password">
                                 </div>
+                                <div class="text-ternary d-flex justify-content-center">
+                                    {% for error in errors %}
+                                        {{ error }} <br>
+                                    {% endfor %}
+                                </div>
                                 <div class="form-group d-flex justify-content-center">
                                     <button type="submit" value="Login" class="btn float-right text-ternary bg-secondary login_btn"> Se connecter </button>
                                 </div>

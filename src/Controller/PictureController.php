@@ -6,6 +6,7 @@ use App\Model\ItemManager;
 use  App\Model\LegendManager;
 use  App\Model\PictureManager;
 use App\Model\RankManager;
+use App\Service\FormValidator;
 use http\Header;
 
 class PictureController extends AbstractController
@@ -14,14 +15,15 @@ class PictureController extends AbstractController
     {
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $legend = ($_POST['inputLegend']);
-
-            if (empty($legend)) {
-                $errors['legend'] = 'Merci de commenter ta légende avant de valider';
-            }
-            if (strlen($legend) > 80) {
-                $errors['legend'] = 'Merci de faire une légende courte (80 caractères max)';
-            }
+            $formValidator = new FormValidator($_POST);
+            $formValidator->trimALL();
+            $toCheckInputs = [
+                'inputLegend' => 'La légende ',
+            ];
+            $formValidator->checkEmptyInputs($toCheckInputs);
+            $formValidator->checkLength($_POST['inputLegend'], 'La légende', 1, 80);
+            $errors = $formValidator->getErrors();
+            $posts = $formValidator->getPosts();
             if (count($errors) === 0) {
                 $legendManager = new LegendManager();
                 $userId = $_SESSION['user']['id'];
