@@ -34,6 +34,21 @@ border-primary {
 body{
     font-family: 'Bebas Neue', cursive;
 }
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5.5rem;
+}
+/* footer Position */
+#bloc-page {
+    position: relative;
+    min-height: 95vh;
+}
+#content-wrap {
+    padding-bottom: 2.5rem;
+}
+/* footer Position */
 #logo{
     height: auto;
     width: 17%;
