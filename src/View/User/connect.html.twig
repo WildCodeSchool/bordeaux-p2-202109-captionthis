@@ -14,13 +14,13 @@
                                     <div class="input-group-prepend d-flex align-items-stretch">
                                         <span class="input-group-text bg-secondary"><i class="fas fa-user text-primary"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Pseudo" name="name">
+                                    <input type="text" class="form-control" placeholder="Pseudo" name="name" required autofocus>
                                 </div> <br>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend d-flex align-items-stretch">
                                         <span class="input-group-text bg-secondary "><i class="fas fa-key text-primary"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Mot de passe" name="password">
+                                    <input type="password" class="form-control" placeholder="Mot de passe" name="password" required>
                                 </div>
                                 <div class="text-ternary d-flex justify-content-center">
                                     {% for error in errors %}
