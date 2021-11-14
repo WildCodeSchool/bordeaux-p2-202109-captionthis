@@ -2,41 +2,59 @@
 
 {% block content %}
 
-    <div class="profile text-ternary fs-1 ">
-        <div class="container">
-            <div class="row justify-content-center">
-                 <div class="pseudo-profil">
-                     {{  user_data.name }}
-                 </div>
-                <div class ="photoProfil">
-                    <img class="img-fluid rounded-circle w-25 " src="https://avatars.githubusercontent.com/{{ user_data.nickname_github }}">
+
+    <div class="container rounded text-ternary mt-4 mb-5">
+        <div class="row">
+            <div class="col-md-6 border-white">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-3 w-50 shadow p-1 mb-2 bg-ternary"
+                         src="https://avatars.githubusercontent.com/{{ user_data.nickname_github }}">
+                    <span class="font-weight-bold fs-2 mb-3 mt-2 text-ternary">
+                        {{ user_data.name }}
+                    </span>
+                    <span class="text-ternary picture-url fs-4 mt-5"> <p> Toi-aussi, tu peux nous balancer une image rigolote !</p>
+                        <form method="POST" class="col">
+                            <input type="url" id="url" name="url" placeholder="URL d'une image"/>
+                            <button class="row text-ternary btn bg-secondary btn-block m-3 fs-4 "> Envoyer une image fun</button>
+                        </form>
+                    </span>
                 </div>
-                <div class="picture-url fs-4">
-                    <p> Poste nous une photo rigolote </p>
-                    <form method="POST">
-                        <input type="url" id="url" name="url" placeholder="URL d'une image" />
-                        <button> Submit </button>
-                    </form>
-                </div>
-                <div class="legends-profil fs-2">
-                     Tes légendes postées :
-                    <ul class="list-group row">
-                        {% for user_legend in user_legends %}
-                     <li class="list-group">
-                         <div class="col meme">
-                             <a href="/image?id={{ user_legend.picture_id }}"><img class="w-25" src="{{ user_legend.url }}" alt="meme"></a>
-                         </div>
-                         <div class="d-flex flex-column fs-3 col ">
-                                {{ user_legend.content }}
-                            <div class="fs-5 text-secondary">
-                                {{ user_legend.ranking }} votes
-                            </div>
+                <div class="col">
+                    <div class="p-3 py-5">
+                        <div class="d-flex flex-column mb-3">
+                            <h4 class="text-right text-secondary border-bottom fs-2">Mon palmarès <i class="offset-1 fas fa-trophy"></i></h4>
                         </div>
-                     </li>
-                        {% endfor %}
-                   </ul>
+
+                    </div>
                 </div>
             </div>
+
+            <div class="col-md-6 border-right ">
+                <div class="p-3 py-5">
+                    <div class="d-flex flex-column mb-3">
+                        <h4 class="text-right text-secondary border-bottom fs-2">Mes légendes postées <i class="offset-1 fas fa-comments"></i></h4>
+                    </div>
+                    <div class="row mt-3 ">
+                        {% for user_legend in user_legends %}
+                        <a href="/image?id={{ user_legend.picture_id }}">
+                            <img class=" col-10 w-50 rounded d-flex justify-content-center text-center" src="{{ user_legend.url }}" alt="meme">
+                        </a>
+                    <div class="row mt-2 pb-5">
+                        <div class="col-md-8 col-9 fs-4">
+                            {{ user_legend.content }}
+                        </div>
+                        <div class="col-md-2 col-2 text-secondary d-flex align-items-baseline
+                       fs-4">
+                            {{ user_legend.ranking }} <i class=" d-flex align-items-baseline offset-1 fas fa-star"> </i>
+                        </div>
+                        <div class="col-md-1 col-1 text-secondary  d-flex align-items-center justify-content-start">
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
