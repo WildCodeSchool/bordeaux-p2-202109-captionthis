@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\UserManager;
 use App\Model\ProfileManager;
+use App\Model\UrlManager;
 use App\Service\ConnectFormValidator;
 use App\Service\FormValidator;
 use App\Service\RegisterFormValidator;
@@ -78,6 +79,13 @@ class UserController extends AbstractController
     }
     public function profile(int $id): string
     {
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (count($errors) === 0) {
+                $urlManager = new UrlManager();
+                $urlManager-> addPictureForUser($_POST['url']);
+            }
+        }
         $userManager = new UserManager();
         $userData = $userManager-> selectOneById($id);
         $profileManager = new ProfileManager();
