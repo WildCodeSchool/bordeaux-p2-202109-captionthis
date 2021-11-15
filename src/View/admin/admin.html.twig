@@ -23,12 +23,12 @@
                             <p class="fs-5 col-3">Posté par {{ picture.name }}</p>
                         </div>
                         <div class="d-flex flex-row justify-content-between">
-                            <form action="admin/update" method="POST" class="col-11">
+                            <form action="admin/updatePicture" method="POST" class="col-11">
                                 <input type="hidden" name="idPicture" value="{{ picture.id }}">
                                 <input type="text" class="col-9" name="url" value="{{ picture.url}}">
                                 <button class="m-2 border-0"><i class="far fa-edit"></i></button>
                             </form>
-                            <form action="/admin/delete" method="POST" onsubmit="return confirm('T es vraiment chaud pour supprimer ?')">
+                            <form action="/admin/deletePicture" method="POST" onsubmit="return confirm('T es vraiment chaud pour supprimer ?')">
                                 <input type="hidden" name="delete" value="{{ picture.id }}">
                                 <button class="m-2 border-0"><i class="far fa-trash-alt"></i></button>
                             </form>

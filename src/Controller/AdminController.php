@@ -49,4 +49,22 @@ class AdminController extends AbstractController
             header('Location: /admin');
         }
     }
+    public function deletePicture()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $delete = $_POST['delete'];
+            $urlManager = new UrlManager();
+            $urlManager-> deletePicture($delete);
+            header('Location:/admin');
+        }
+    }
+    public function updatePicture()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $picture = $_POST;
+            $urlManager = new UrlManager();
+            $urlManager->updatePicture($picture);
+            header('Location: /admin');
+        }
+    }
 }

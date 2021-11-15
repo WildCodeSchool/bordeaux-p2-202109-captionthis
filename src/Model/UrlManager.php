@@ -34,4 +34,18 @@ class UrlManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
+    public function deletePicture(int $id)
+    {
+        $statement = $this->pdo->prepare("DELETE picture FROM caption_this.picture WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+    }
+
+    public function updatePicture(array $picture): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `url` = :url WHERE id=:id");
+        $statement->bindValue('id', $picture['idPicture'], \PDO::PARAM_INT);
+        $statement->bindValue('url', $picture['url'], \PDO::PARAM_STR);
+        return $statement->execute();
+    }
 }

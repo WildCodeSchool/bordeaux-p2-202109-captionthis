@@ -16,6 +16,8 @@ return [
     'admin'        => ['AdminController', 'showLegendForAdmin'],
     'admin/delete' => ['AdminController', 'deleteLegend'],
     'admin/update' => ['AdminController', 'updateLegend',['id']],
+    'admin/deletePicture' => ['AdminController', 'deletePicture'],
+    'admin/updatePicture' => ['AdminController', 'updatePicture',['id']],
     'image/rank'    => ['PictureController', 'addRank', ['legendId', 'pictureId']],
 
 
