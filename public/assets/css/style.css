@@ -30,14 +30,8 @@ border-primary {
 .border-ternary {
     border-color: var(--ternary-color) !important;
 }
-
 body{
     font-family: 'Bebas Neue', cursive;
-}
-#logo{
-    height: auto;
-    width: 17%;
-    margin-right: 60px;
 }
 .navbar-toggler-icon {
     background-image: url("/assets/images/logoM.jpg") !important;
@@ -45,8 +39,29 @@ body{
 .navbar-link{
     text-decoration: none !important;
 }
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: relative;
+}
+#logo{
+    height: auto;
+    width: 17%;
+    margin-right: 60px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5.5rem;
+}
 .network{
     width:20%;
+}
+#bloc-page {
+    position: relative;
+    min-height: 95vh;
+}
+#content-wrap {
+    padding-bottom: 2.5rem;
 }
 .best-legend{
     width: 300px;
@@ -59,74 +74,35 @@ img {
     width: 100%;
     height: 100%;
 }
-
-.container{
-    height: 100%;
-    align-content: center;
-}
-
-.card{
-    height: 370px;
-    margin-top: 20px;
-    margin-bottom: auto;
-    width: 400px;
-    background-color: rgba(0,0,0,0.5) !important;
-}
 input{
     font-family: arial;
 }
-
-.card-header h3{
-    color: white;
-}
-
 .input-group-prepend span{
     width: 50px;
-    color: black;
     border:0 !important;
 }
-
-input:focus{
-    outline: 0 0 0 0  !important;
-    box-shadow: 0 0 0 0 !important;
-
-}
-
-.login_btn{
-    color: black;
-    width: 100px;
-    margin-top: 50px;
-
-}
-
-.login_btn:hover{
-    color: black;
-    background-color: white;
-}
-
-.links{
-    color: white;
-}
-
-.profile{
-    margin-top: 40px;
-}
-
-
-#picture-show {
-    max-width: 700px;
-    height: auto;
+#picture-background{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 400px;
 }
 #photo-profil {
     max-width: 80px;
     height: auto;
 }
 .swiper {
-    width: 100vw;
     height: 300px;
 }
-.content {
+rank-number {
+    position: absolute;
+    font-size: 8rem;
     color: white;
+    /*opacity: .7;*/
+    right: 152px;
+    top: 127px;
+}
+.content {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.68);
     bottom: 0;
@@ -134,19 +110,36 @@ input:focus{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 25px;
 }
 .fit-cover {
     object-fit: cover;
 }
-
 .btn-lg {
     width: 300px;
 }
-.navbar-expand-lg .navbar-nav .dropdown-menu {
-    position: relative;
+#avatarnav {
+    width: 50px;
+}
+.btn-outline-danger {
+    color: var(--ternary-color);
+    border: none !important;
+}
+.btn-check:focus + .btn-outline-danger, .btn-outline-danger:focus {
+    color: var(--ternary-color);
+    background-color: var(--secondary-color);
+    box-shadow: none !important;
+}
+.btn-check:checked + .btn-outline-danger, .btn-check:active + .btn-outline-danger, .btn-outline-danger:active, .btn-outline-danger.active, .btn-outline-danger.dropdown-toggle.show {
+    color: var(--ternary-color);
+    background-color: var(--secondary-color);
+}
+.btn-check:checked + .btn-outline-danger:focus, .btn-check:active + .btn-outline-danger:focus, .btn-outline-danger:active:focus, .btn-outline-danger.active:focus, .btn-outline-danger.dropdown-toggle.show:focus {
+    color: var(--ternary-color);
+    background-color: var(--secondary-color);
+    box-shadow: none !important;
+}
+.btn-outline-danger:disabled, .btn-outline-danger.disabled {
+    color: var(--ternary-color);
+    background-color: var(--secondary-color);
 }
 
-a {
-    text-decoration: none;
-}

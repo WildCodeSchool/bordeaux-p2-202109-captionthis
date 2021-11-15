@@ -3,6 +3,11 @@
 namespace App\Controller;
 
 use App\Model\UserManager;
+use App\Model\ProfileManager;
+use App\Model\UrlManager;
+use App\Service\ConnectFormValidator;
+use App\Service\FormValidator;
+use App\Service\RegisterFormValidator;
 
 class UserController extends AbstractController
 {
@@ -11,19 +16,21 @@ class UserController extends AbstractController
     {
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $name = (trim($_POST['name']));
-            $nicknameGithub = (trim($_POST['nickname_github']));
-            $password = ($_POST['password']);
+            $formValidator = new RegisterFormValidator($_POST);
+            $formValidator->trimALL();
+            $toCheckInputs = [
+                'name'            => 'Le nom',
+                'nickname_github' => 'Le pseudo Github',
+                'password'        => 'Le mot de passe',
+            ];
+            $formValidator->checkEmptyInputs($toCheckInputs);
+            $formValidator->checkLength($_POST['name'], 'Le nom', 1, 45);
+            $formValidator->checkLength($_POST['nickname_github'], 'Le pseudo Github', 1, 45);
+            $formValidator->checkLength($_POST['password'], 'Le mot de passe', 6, 100);
+            $formValidator->checkIfNameAlreadyExists($_POST['name']);
+            $errors = $formValidator->getErrors();
+            $posts = $formValidator->getPosts();
 
-            if (empty($name)) {
-                $errors['name'] = 'Merci de rentrer votre nom';
-            }
-            if (empty($nicknameGithub)) {
-                $errors['nickname_github'] = 'Merci de rentrer votre pseudo Github';
-            }
-            if (empty($password)) {
-                $errors['password'] = 'Merci de rentrer votre pseudo mot de passe';
-            }
             if (count($errors) === 0) {
                 $userManager = new UserManager();
                 $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -41,18 +48,28 @@ class UserController extends AbstractController
 
     public function connect(): string
     {
+        $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $userManager = new UserManager();
-            $userData = $userManager->selectOnebyName($_POST['name']);
-            if (password_verify($_POST['password'], $userData['password'])) {
+            $formValidator = new ConnectFormValidator($_POST);
+            $toCheckInputs = [
+                'name' => 'Le nom',
+                'password' => 'Le mot de passe',
+            ];
+            $formValidator->checkEmptyInputs($toCheckInputs);
+            $formValidator->checkPassword($_POST['name']);
+            $errors = $formValidator->getErrors();
+            $posts = $formValidator->getPosts();
+
+            if (count($errors) === 0) {
+                $userManager = new UserManager();
+                $userData = $userManager->selectOneByName($_POST['name']);
                 $_SESSION['user'] = $userData;
-            } else {
-                var_dump('échec de la connexion');
-            };
-            header('Location:/');
+                header('Location:/');
+            }
         }
         return $this->twig->render('User/connect.html.twig', [
         'session' => $_SESSION,
+        'errors'  => $errors
         ]);
     }
     public function logout()
@@ -62,10 +79,20 @@ class UserController extends AbstractController
     }
     public function profile(int $id): string
     {
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (count($errors) === 0) {
+                $urlManager = new UrlManager();
+                $urlManager-> addPictureForUser($_POST['url']);
+            }
+        }
         $userManager = new UserManager();
-        $userData = $userManager -> selectOneById($id);
+        $userData = $userManager-> selectOneById($id);
+        $profileManager = new ProfileManager();
+        $userLegends = $profileManager->selectAllLegendsByUser($id);
         return $this->twig->render('User/profile.html.twig', [
             'user_data' => $userData,
+            'user_legends' => $userLegends,
             ]);
     }
 }

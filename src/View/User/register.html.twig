@@ -1,43 +1,46 @@
 {% extends 'layout.html.twig' %}
 
     {% block content %}
-        <form method="post">
             <div class="container">
                 <div class="d-flex justify-content-center h-100">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-center">
+                    <div class="card bg-primary">
+                        <div class="card-header text-ternary d-flex justify-content-center mt-5">
                             <h3>Inscris-toi</h3>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form method="post">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend d-flex align-items-stretch">
-                                        <span class="input-group-text bg-secondary"><i class="fas fa-user"></i></span>
+                                        <span class="input-group-text bg-secondary"><i class="fas fa-user text-primary"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Nom" name="name">
+                                    <input type="text" class="form-control" placeholder="Pseudo" name="name" required autofocus>
                                     <span class="text-secondary"></span>
                                 </div><br>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend d-flex align-items-stretch">
-                                        <span class="input-group-text bg-secondary "><i class="fa-brands fa-github-square"></i></span>
+                                        <span class="input-group-text bg-secondary "><i class="fab fa-github text-primary"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Profil Github" name="nickname_github">
+                                    <input type="text" class="form-control" placeholder="Pseudo Github" name="nickname_github" required>
                                     <span class="text-secondary"></span>
                                 </div><br>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend d-flex align-items-stretch">
-                                        <span class="input-group-text bg-secondary "><i class="fas fa-key"></i></span>
+                                        <span class="input-group-text bg-secondary "><i class="fas fa-key text-primary"></i></span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Mot de passe" name="password">
+                                    <input type="password" class="form-control" placeholder="Mot de passe" name="password" required>
                                     <span class="text-secondary"></span>
                                 </div>
+                                <div class="card-header text-ternary d-flex justify-content-center">
+                                    {% for error in errors %}
+                                        {{ error }} <br>
+                                    {% endfor %}
+                                </div>
                                 <div class="form-group d-flex justify-content-center ">
-                                    <button type="submit" value="Login" class="btn float-right text-ternary bg-secondary login_btn">S'inscrire</button>
+                                    <button type="submit" value="Login" class="btn mt-5 float-right text-ternary bg-secondary login_btn">S'inscrire</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
     {% endblock %}
