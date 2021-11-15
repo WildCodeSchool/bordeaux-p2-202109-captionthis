@@ -94,7 +94,7 @@ input{
 .swiper {
     height: 300px;
 }
-rank-number {
+.rank-number {
     position: absolute;
     font-size: 8rem;
     color: white;
