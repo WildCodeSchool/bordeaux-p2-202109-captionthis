@@ -18,14 +18,18 @@ class AdminController extends AbstractController
                 $urlManager->addPictureForAdmin($_POST['url']);
             }
         }
+
         $legendManager = new LegendManager();
         $legends = $legendManager->selectAllWithName();
-
+        $urlManager = new UrlManager();
+        $pictures = $urlManager->selectPictures();
         return $this->twig->render('admin/admin.html.twig', [
             'legendManager' => $legends,
+            'pictures'      => $pictures,
 
         ]);
     }
+
     public function deleteLegend()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
