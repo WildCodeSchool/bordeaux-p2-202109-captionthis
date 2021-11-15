@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
     <div class="container mb-5">
-        <h1 class="text-center text-ternary"> Vote pour ta légende préférée </h1>
+        <h1 class="text-center mt-3 text-ternary"> Vote pour ta légende préférée </h1>
         <div class="row">
             <figure id="picture-background" class="w-100" style="background-image: url({{ picture.url }})">
                {#  <img id="picture-show" class="rounded mx-auto d-flex img-fluid" src="{{picture.url}}" alt="meme">#}
@@ -34,7 +34,7 @@
             </ul>
         <form action="" class="g-3 needs-validation" method="post" novalidate>
             <div class="col-12 col-sm-10 col-md-9 rounded mx-auto">
-                <label for="validationTextarea" class="form-label text-ternary">Poste nous ta meilleure légende !
+                <label for="validationTextarea" class="form-label text-ternary fs-2">Poste nous ta meilleure légende !
                     <span class="text-secondary">{% for error in errors %}{{ error }}{% endfor %}</span>
                 </label>
                 <input type="text" name="inputLegend" class="form-control is-invalid" id="validationTextarea" placeholder="Laisse libre cours à ton imagination" required>
