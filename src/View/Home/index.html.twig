@@ -5,16 +5,16 @@
 {% block content %}
 <div class="container-fluid mb-3" >
     <div class="home-pictures py-5">
-        <h2 class="text-center text-secondary" >Les petites dernières</h2>
+        <h2 class="text-center text-secondary mt-4 fs-1" >Les petites dernières</h2>
             {% set pictures = order_by_date_pictures %}
             {% include 'Component/_swiper.html.twig' %}
 
-        <h2 class="text-center text-secondary">Le TOP du TOP</h2>
+        <h2 class="text-center text-secondary mt-4 fs-1">Le TOP du TOP</h2>
             {% set pictures = best_ranking_pictures %}
             {% set top = true %}
             {% include 'Component/_swiper.html.twig' %}
 
-        <h2 class="text-center text-secondary">On ne savait pas quoi mettre ici</h2>
+        <h2 class="text-center text-secondary mt-4 fs-1">On ne savait pas quoi mettre ici</h2>
             {% set pictures = random_pictures %}
             {% set top = false %}
             {% include 'Component/_swiper.html.twig' %}

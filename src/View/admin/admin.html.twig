@@ -1,11 +1,14 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
     {% if(session.user.is_admin) %}
-        <form method="POST">
-            <input type="url" id="url" name="url" placeholder="URL" />
-            <button> Submit </button>
-        </form>
-        <div class="container my-5">
+        <div class="container rounded text-ternary mt-4 mb-5">
+        <div class="row">
+            <div class="col-md-6 border-white">
+                <form method="POST" class="col">
+                    <input type="url" id="url" name="url" placeholder="URL d'une image"/>
+                    <button class="row text-ternary btn bg-secondary btn-block m-3 fs-4 "> Envoyer une image fun</button>
+                </form>
+            </div>
             <ul class="list-group d-flex justify-content-center">
                 {% for legendManager in legendManager %}
                     <li class="list-group-item col-12 col-sm-10 col-md-9 mx-auto my-1 rounded-3">

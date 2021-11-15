@@ -9,7 +9,7 @@
                 {% if top %}
                     <span class="rank-number">{{ loop.index }}</span>
                 {% endif %}
-                <div class="content">
+                <div class="content text-ternary fs-4">
                    {{ top ? loop.index : ''}} Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </div>
                 <a href="/image?id={{ picture.id }}"><img src="{{ picture.url }}" class="rounded mx-auto d-block fit-cover"></a>
