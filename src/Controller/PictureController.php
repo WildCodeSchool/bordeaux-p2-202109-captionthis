@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use App\Model\ItemManager;
 use  App\Model\LegendManager;
 use  App\Model\PictureManager;
 use App\Model\RankManager;
+use App\Model\VoteManager;
 use App\Service\FormValidator;
 
 class PictureController extends AbstractController
@@ -43,11 +43,13 @@ class PictureController extends AbstractController
         ]);
     }
 
-    public function addRank($legendId, $pictureId)
+    public function manageRanking($legendId, $pictureId, $userId)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $rankManager = new RankManager();
             $rankManager->updateRankLegend($legendId);
+            $voteManager = new VoteManager();
+            $voteManager->insertVote($userId, $legendId);
             header('Location:/image?id=' . $pictureId);
         }
     }
