@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use Symfony\Component\Config\Exception\FileLocatorFileNotFoundException;
+
 class UrlManager extends AbstractManager
 {
     public const TABLE = 'picture';
@@ -25,27 +27,29 @@ class UrlManager extends AbstractManager
     public function selectPictures()
     {
         $statement = $this->pdo->prepare("
-        SELECT name, url, p.created_at, is_validate, p.id, l.picture_id, u.id FROM picture p
-        JOIN legend l ON l.picture_id = p.id
-        JOIN user u ON l.user_id = u.id
-        WHERE is_validate = 0
-        ORDER BY created_at DESC ;
+        SELECT p.url, p.created_at, p.is_validate, u.name, p.id FROM caption_this.picture p
+        JOIN user u ON p.user_id = u.id
         ");
         $statement->execute();
         return $statement->fetchAll();
     }
     public function deletePicture(int $id)
     {
-        $statement = $this->pdo->prepare("DELETE picture FROM picture WHERE id=:id");
+        $statement = $this->pdo->prepare("DELETE picture FROM caption_this.picture WHERE id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
-
     public function updatePicture(array $picture): bool
     {
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `url` = :url WHERE id=:id");
         $statement->bindValue('id', $picture['id'], \PDO::PARAM_INT);
         $statement->bindValue('url', $picture['url'], \PDO::PARAM_STR);
+        return $statement->execute();
+    }
+    public function validatePicture(array $picture): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `is_validate` = 1 WHERE id=:id");
+        $statement->bindValue('id', $picture['id'], \PDO::PARAM_INT);
         return $statement->execute();
     }
 }
