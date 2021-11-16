@@ -19,7 +19,8 @@ return [
     'admin/suppressionImage' => ['AdminController', 'deletePicture'],
     'admin/modificationImage' => ['AdminController', 'updatePicture',['id']],
     'admin/validationImage' => ['AdminController', 'validatePicture',['id']],
-    'image/vote'    => ['PictureController', 'addRank', ['legendId', 'pictureId']],
+    'image/vote'    => ['PictureController', 'manageRanking', ['legendId', 'pictureId']],
+
 
 
     'items'        => ['ItemController', 'index',],
