@@ -33,23 +33,23 @@ class UrlManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
-    public function deletePicture(int $id)
+    public function setPictureToZero(array $picture)
     {
-        $statement = $this->pdo->prepare("DELETE picture FROM caption_this.picture WHERE id=:id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `is_validate` = 0  WHERE id=:id");
+        $statement->bindValue('id', $picture ['id'], \PDO::PARAM_INT);
         $statement->execute();
     }
-    public function updatePicture(array $picture): bool
+    public function updatePicture(array $picture)
     {
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `url` = :url WHERE id=:id");
         $statement->bindValue('id', $picture['id'], \PDO::PARAM_INT);
         $statement->bindValue('url', $picture['url'], \PDO::PARAM_STR);
-        return $statement->execute();
+        $statement->execute();
     }
-    public function validatePicture(array $picture): bool
+    public function validatePicture(array $picture)
     {
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `is_validate` = 1 WHERE id=:id");
         $statement->bindValue('id', $picture['id'], \PDO::PARAM_INT);
-        return $statement->execute();
+        $statement->execute();
     }
 }
