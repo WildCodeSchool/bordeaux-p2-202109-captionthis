@@ -11,6 +11,11 @@ class AdminController extends AbstractController
 {
     public function showLegendForAdmin()
     {
+        if (empty($_SESSION)) {
+            header('HTTP/1.0 404 Not Found');
+            echo '404 - Page not found';
+            return ;
+        }
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (count($errors) === 0) {

@@ -15,6 +15,13 @@ if (!key_exists($route, $routes)) {
 
 // Get the matching route in $routes array
 $matchingRoute = $routes[$route];
+if (!empty($_SESSION)) {
+    if ($matchingRoute[0] === 'AdminController' && !$_SESSION['user']['is_admin']) {
+        header("HTTP/1.0 404 Not Found");
+        echo '404 - Page not found';
+        exit();
+    }
+}
 
 // Get the FQCN of controller associated to the matching route
 $controller = 'App\\Controller\\' . $matchingRoute[0];
