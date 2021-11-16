@@ -1,8 +1,5 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-
-    {% if(session.user.is_admin) %}
-
 <div class="container rounded text-ternary mt-4 mb-5">
     <div class="my-5">
             <form method="POST" class="d-flex justify-content-center">
@@ -63,9 +60,4 @@
         </div>
     </div>
 </div>
-    {% else %}
-        <div class="container d-flex justify-content-center my-5">
-                <p class="d-flex justify-content-center text-secondary fs-3 col-9">Merci de vous connecter en tant qu'administrateur.</p>
-        </div>
-    {% endif %}
 {% endblock %}
