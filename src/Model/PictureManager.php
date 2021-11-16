@@ -2,13 +2,10 @@
 
 namespace App\Model;
 
-use http\QueryString;
-
 class PictureManager extends AbstractManager
 {
     public const TABLE = "picture";
 
-// Methode pour afficher sur le carrousel de l'accueil les dernières photos ajoutées
     public function showPictureByDate(): array
     {
         $statement = $this->pdo->query("
@@ -18,7 +15,6 @@ class PictureManager extends AbstractManager
         LIMIT 12");
         return $statement->fetchAll();
     }
-// Methode pour afficher sur le carrousel de l'accueil les photos en random
     public function showPictureRandom(): array
     {
         $statement = $this->pdo->query("
@@ -30,7 +26,6 @@ class PictureManager extends AbstractManager
         return $statement->fetchAll();
     }
 
-// Methode pour afficher sur le carrousel de l'accueil les photos ayant reçu le plus grand nb de votes
     public function bestRankingPicture(): array
     {
         $this->pdo->query("SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");

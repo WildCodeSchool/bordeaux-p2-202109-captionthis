@@ -4,9 +4,7 @@ namespace App\Model;
 
 class ProfileManager extends AbstractManager
 {
-    public const TABLE = 'legend';
 
-    // Methode pour afficher sur la page de profil les légendes que l'utilisateur a postées
     public function selectAllLegendsByUser(int $id): array
     {
         $statement = $this->pdo->prepare('

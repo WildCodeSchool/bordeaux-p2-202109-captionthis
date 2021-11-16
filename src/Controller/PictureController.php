@@ -7,7 +7,6 @@ use  App\Model\LegendManager;
 use  App\Model\PictureManager;
 use App\Model\RankManager;
 use App\Service\FormValidator;
-use http\Header;
 
 class PictureController extends AbstractController
 {
@@ -39,7 +38,7 @@ class PictureController extends AbstractController
         return $this->twig->render('Picture/show.html.twig', [
             'picture' => $picture,
             'legends' => $legends,
-            'bestRankingLegend' => $bestRankingLegend,
+            'best_ranking_legend' => $bestRankingLegend,
             'errors' => $errors
         ]);
     }

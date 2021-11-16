@@ -18,14 +18,18 @@ class AdminController extends AbstractController
                 $urlManager->addPictureForAdmin($_POST['url']);
             }
         }
+
         $legendManager = new LegendManager();
         $legends = $legendManager->selectAllWithName();
-
+        $urlManager = new UrlManager();
+        $pictures = $urlManager->selectPictures();
         return $this->twig->render('admin/admin.html.twig', [
-            'legendManager' => $legends,
+            'legend_manager' => $legends,
+            'pictures'      => $pictures,
 
         ]);
     }
+
     public function deleteLegend()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -42,6 +46,24 @@ class AdminController extends AbstractController
             $legend = $_POST;
             $legendManager = new legendManager();
             $legendManager->update($legend);
+            header('Location: /admin');
+        }
+    }
+    public function deletePicture()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $delete = $_POST['delete'];
+            $urlManager = new UrlManager();
+            $urlManager-> deletePicture($delete);
+            header('Location:/admin');
+        }
+    }
+    public function updatePicture()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $picture = $_POST;
+            $urlManager = new UrlManager();
+            $urlManager->updatePicture($picture);
             header('Location: /admin');
         }
     }
