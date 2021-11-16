@@ -29,7 +29,6 @@ class UserController extends AbstractController
             $formValidator->checkLength($_POST['password'], 'Le mot de passe', 6, 100);
             $formValidator->checkIfNameAlreadyExists($_POST['name']);
             $errors = $formValidator->getErrors();
-            $posts = $formValidator->getPosts();
 
             if (count($errors) === 0) {
                 $userManager = new UserManager();
@@ -58,7 +57,6 @@ class UserController extends AbstractController
             $formValidator->checkEmptyInputs($toCheckInputs);
             $formValidator->checkPassword($_POST['name']);
             $errors = $formValidator->getErrors();
-            $posts = $formValidator->getPosts();
 
             if (count($errors) === 0) {
                 $userManager = new UserManager();
