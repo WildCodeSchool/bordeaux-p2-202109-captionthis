@@ -25,10 +25,9 @@ class UrlManager extends AbstractManager
     public function selectPictures()
     {
         $statement = $this->pdo->prepare("
-        SELECT name, url, p.created_at, is_validate, p.id, l.picture_id, u.id FROM picture p
+        SELECT name, url, p.created_at, is_validate, p.id, l.picture_id FROM picture p
         JOIN legend l ON l.picture_id = p.id
         JOIN user u ON l.user_id = u.id
-        WHERE is_validate = 0
         ORDER BY created_at DESC ;
         ");
         $statement->execute();
@@ -36,7 +35,7 @@ class UrlManager extends AbstractManager
     }
     public function deletePicture(int $id)
     {
-        $statement = $this->pdo->prepare("DELETE picture FROM picture WHERE id=:id");
+        $statement = $this->pdo->prepare("DELETE picture FROM caption_this.picture WHERE id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
