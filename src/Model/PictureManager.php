@@ -11,6 +11,7 @@ class PictureManager extends AbstractManager
         $statement = $this->pdo->query("
         SELECT * 
         FROM picture 
+        WHERE is_validate=1
         ORDER BY created_at DESC
         LIMIT 12");
         return $statement->fetchAll();
@@ -20,6 +21,7 @@ class PictureManager extends AbstractManager
         $statement = $this->pdo->query("
         SELECT *
         FROM picture
+        WHERE is_validate=1
         ORDER BY rand();
         ");
         $statement->execute();
@@ -30,14 +32,15 @@ class PictureManager extends AbstractManager
     {
         $this->pdo->query("SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
         $statement = $this->pdo->prepare(" 
-        SELECT SUM(l.ranking) 
+        SELECT SUM(l.ranking)
         as rankingSum, l.id
         as legendId, l.content, l.ranking, p.id, p.url
-        FROM legend l
+        FROM legend l    
         JOIN picture p 
         ON l.picture_id=p.id
+        WHERE p.is_validate = 1
         GROUP BY p.id
-        ORDER BY rankingSum
+        ORDER BY ranking
         DESC
         LIMIT 12;");
         $statement->execute();
