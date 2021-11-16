@@ -27,17 +27,19 @@
                             </form>
 
                             {% if picture.is_validate == false %}
-                            <form action="admin/validationImage" method="POST" onsubmit="return confirm('Tu valides bien cette photo?')">
+                            <form action="admin/validationImage" method="POST">
                                 <input type="hidden" name="id" value="{{ picture.id }}">
                                 <button class="m-1 border-0"><i class="text-danger fas fa-check"></i> </button>
                             </form>
                             {% else %}
+                                <form action="admin/validationImageZero" method="POST" >
+                                    <input type="hidden" name="id" value="{{ picture.id }}">
+                                    <button class="m-1 border-0"><i class="far fa-trash-alt"></i></button>
+                                </form>
                                 <div class="m-1 border-0"><i class="text-success fas fa-check"></i> </div>
+
                             {%  endif %}
-                            <form action="admin/suppressionImage" method="POST" onsubmit="return confirm('T es vraiment chaud pour supprimer ?')">
-                                <input type="hidden" name="delete" value="{{ picture.id }}">
-                                 <button class="m-1 border-0"><i class="far fa-trash-alt"></i></button>
-                            </form>
+
 
                         </div>
                     </li>

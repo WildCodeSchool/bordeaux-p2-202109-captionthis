@@ -16,7 +16,7 @@ return [
     'admin'        => ['AdminController', 'showLegendForAdmin'],
     'admin/suppressionLegende' => ['AdminController', 'deleteLegend'],
     'admin/modificationLegende' => ['AdminController', 'updateLegend',['id']],
-    'admin/suppressionImage' => ['AdminController', 'deletePicture'],
+    'admin/validationImageZero' => ['AdminController', 'setPictureToZero',['id']],
     'admin/modificationImage' => ['AdminController', 'updatePicture',['id']],
     'admin/validationImage' => ['AdminController', 'validatePicture',['id']],
     'image/vote'    => ['PictureController', 'manageRanking', ['legendId', 'pictureId']],

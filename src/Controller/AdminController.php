@@ -54,12 +54,12 @@ class AdminController extends AbstractController
             header('Location: /admin');
         }
     }
-    public function deletePicture()
+    public function setPictureToZero()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $delete = $_POST['delete'];
+            $picture = $_POST;
             $urlManager = new UrlManager();
-            $urlManager-> deletePicture($delete);
+            $urlManager-> setPictureToZero($picture);
             header('Location:/admin');
         }
     }
@@ -74,12 +74,11 @@ class AdminController extends AbstractController
     }
     public function validatePicture()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $picture = $_POST;
             $urlManager = new UrlManager();
             $urlManager-> validatePicture($picture);
             header('location: /admin');
         }
     }
-
 }
