@@ -24,8 +24,8 @@ class PictureManager extends AbstractManager
         $statement = $this->pdo->query("
         SELECT *
         FROM picture
-        ORDER BY rand()
-        LIMIT 12;");
+        ORDER BY rand();
+        ");
         $statement->execute();
         return $statement->fetchAll();
     }
