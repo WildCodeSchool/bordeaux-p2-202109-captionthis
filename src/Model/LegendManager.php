@@ -33,10 +33,9 @@ class LegendManager extends AbstractManager
     public function selectAllWithName()
     {
         $statement = $this->pdo->prepare("
-        SELECT l.id, l.content, u.name, u.nickname_github, l.picture_id FROM legend l
-        JOIN user u
-        ON l.user_id = u.id
-        ORDER BY l.created_at DESC
+        SELECT p.url, p.created_at, p.is_validate, u.name FROM caption_this.picture p
+        JOIN user u ON p.user_id = u.id
+        ;
         ");
         $statement->execute();
         return $statement->fetchAll();
