@@ -25,9 +25,15 @@
                         <p>Posté par {{ legend.name }}</p>
                         <img class="photo-profil img-fluid rounded-circle px-3" src="https://avatars.githubusercontent.com/{{ legend.nickname_github }}" alt="avatars github">
                         <span class="badge bg-primary ">{{ legend.ranking }}
+                            {% if legend.isAbleToVote  %}
                             <form  action="image/vote?legendId={{ legend.legend_id }}&pictureId={{ picture.id }}" method="POST" >
                                 <button type="submit"  class=" btn btn-outline-danger"><i class="fas fa-star"></i></button>
                             </form>
+                            {% else %}
+                                <p>
+                                    Vous avez déjà voté !
+                                </p>
+                                {% endif %}
                         </span>
                     </li>
                 {% endfor %}

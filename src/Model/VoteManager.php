@@ -5,7 +5,7 @@ namespace App\Model;
 class VoteManager extends AbstractManager
 {
     public const TABLE = 'user_legend';
-    public function insertVote(int $userId, int $legendId): void
+    public function insertVote(int $userId, int $legendId)
     {
         $statement = $this->pdo->prepare(
             "INSERT INTO user_legend

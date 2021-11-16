@@ -29,4 +29,15 @@ class UserManager extends AbstractManager
         }
         return $result;
     }
+
+    public function selectUserIdBylegendId(int $legendId)
+    {
+        $statement=$this->pdo->prepare("
+        SELECT user_id
+        FROM user_legend
+        WHERE legend_id = :legend_id");
+        $statement->bindValue('legend_id', $legendId, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll(\PDO::FETCH_COLUMN);
+    }
 }
