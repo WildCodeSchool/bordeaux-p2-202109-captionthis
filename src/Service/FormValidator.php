@@ -32,10 +32,10 @@ class FormValidator
 
     public function checkEmptyInputs(array $inputs): void
     {
-        foreach ($this->posts as $key => $input) {
+        foreach (array_keys($this->posts) as $key) {
             if (array_key_exists($key, $inputs)) {
                 if ($this->posts[$key] === '') {
-                    $this->errors[] = $inputs[$key] . ' ne doit pas être vide';
+                    $this->errors[] = $inputs[$key] . ' ne doit pas être vide. ' . PHP_EOL;
                 }
             }
         }

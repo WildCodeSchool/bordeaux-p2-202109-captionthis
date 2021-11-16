@@ -26,7 +26,7 @@ class PictureController extends AbstractController
             if (count($errors) === 0) {
                 $legendManager = new LegendManager();
                 $userId = $_SESSION['user']['id'];
-                $legendManager->create($_POST, $pictureId, $userId);
+                $legendManager->create($posts, $pictureId, $userId);
             }
         }
         $pictureManager = new PictureManager();
