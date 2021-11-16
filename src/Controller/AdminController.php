@@ -67,4 +67,14 @@ class AdminController extends AbstractController
             header('Location: /admin');
         }
     }
+    public function validatePicture()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $picture = $_POST;
+            $urlManager = new UrlManager();
+            $urlManager-> validatePicture($picture);
+            header('location: /admin');
+        }
+    }
+
 }
