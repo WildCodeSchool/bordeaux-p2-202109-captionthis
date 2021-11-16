@@ -24,7 +24,7 @@ class AdminController extends AbstractController
         $urlManager = new UrlManager();
         $pictures = $urlManager->selectPictures();
         return $this->twig->render('admin/admin.html.twig', [
-            'legendManager' => $legends,
+            'legend_manager' => $legends,
             'pictures'      => $pictures,
 
         ]);
