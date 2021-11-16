@@ -30,9 +30,9 @@ class UserManager extends AbstractManager
         return $result;
     }
 
-    public function selectUserIdBylegendId(int $legendId)
+    public function selectUserIdByLegendId(int $legendId)
     {
-        $statement=$this->pdo->prepare("
+        $statement = $this->pdo->prepare("
         SELECT user_id
         FROM user_legend
         WHERE legend_id = :legend_id");
