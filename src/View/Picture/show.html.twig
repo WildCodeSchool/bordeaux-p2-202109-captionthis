@@ -10,7 +10,7 @@
         <li class="list-group-item d-flex justify-content-end align-items-start col-12 col-sm-10 col-md-5 mx-auto my-1 rounded-3">
         <div class="flex-grow-1">
             <div class="fs-1">
-                <p class="text-md-center"> {{ best_ranking_legend.content}} </p>
+                <p class="text-md-center border border-ternary rounded p-4"> {{ best_ranking_legend.content}} </p>
             </div>
         </div>
         </li>
@@ -19,7 +19,7 @@
                 {% for legend in legends %}
                     {% if legend.isAbleToVote == false  %}
                     <li class="list-group-item d-flex justify-content-end align-items-start col-12 col-sm-10 col-md-9 mx-auto my-1 rounded-3">
-                        <div class="flex-grow-1">
+                        <div class="flex-grow-1 ">
                             <div class="fs-3">
                                 {{ legend.content }}
                             </div>
