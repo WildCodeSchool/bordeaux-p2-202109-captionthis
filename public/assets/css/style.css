@@ -35,7 +35,7 @@ body{
 }
 .navbar-toggler-icon {
     background-image: url("/assets/images/logoM.jpg") !important;
-}
+   }
 .navbar-link{
     text-decoration: none !important;
 }
@@ -45,7 +45,6 @@ body{
 #logo{
     height: auto;
     width: 17%;
-    margin-right: 60px;
 }
 footer {
     position: absolute;
