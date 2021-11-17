@@ -34,10 +34,17 @@ class PictureController extends AbstractController
         $picture = $pictureManager->selectOneById($pictureId);
         $legendManager = new LegendManager();
         $legends = $legendManager->selectAllByImageId($pictureId);
-        $userManager = new UserManager();
+
+
+
+            $userManager = new UserManager();
         foreach ($legends as &$legend) {
-            $votants = $userManager->selectUserIdByLegendId($legend['legend_id']);
-            $legend['isAbleToVote'] = !in_array($_SESSION['user']['id'], $votants);
+            if (isset($_SESSION['user'])) {
+                $votants = $userManager->selectUserIdByLegendId($legend['legend_id']);
+                $legend['isAbleToVote'] = !in_array($_SESSION['user']['id'], $votants);
+            } else {
+                $legend['isAbleToVote'] = false;
+            }
         }
         $rankManager = new RankManager();
         $bestRankingLegend = $rankManager->selectLegendByRanking($pictureId);
