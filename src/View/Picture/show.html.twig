@@ -7,9 +7,9 @@
                {#  <img id="picture-show" class="rounded mx-auto d-flex img-fluid" src="{{picture.url}}" alt="meme">#}
             </figure>
         </div>
-        <li class="list-group-item d-flex justify-content-end align-items-start col-12 col-sm-10 col-md-3 mx-auto my-1 rounded-3">
+        <li class="list-group-item d-flex justify-content-end align-items-start col-12 col-sm-10 col-md-5 mx-auto my-1 rounded-3">
         <div class="flex-grow-1">
-            <div class="fs-2">
+            <div class="fs-1">
                 <p class="text-md-center"> {{ best_ranking_legend.content}} </p>
             </div>
         </div>
@@ -20,13 +20,13 @@
                     {% if legend.isAbleToVote == false  %}
                     <li class="list-group-item d-flex justify-content-end align-items-start col-12 col-sm-10 col-md-9 mx-auto my-1 rounded-3">
                         <div class="flex-grow-1">
-                            <div class="fs-2">
+                            <div class="fs-3">
                                 {{ legend.content }}
                             </div>
                         </div>
                         <p>Posté par {{ legend.name }}</p>
                         <img class="photo-profil img-fluid rounded-circle px-3" src="https://avatars.githubusercontent.com/{{ legend.nickname_github }}" alt="avatars github">
-                        <span class="badge bg-primary ">{{ legend.ranking }}
+                        <span class="badge bg-primary fs-5">{{ legend.ranking }}
                             <form  action="image/vote?legendId={{ legend.legend_id }}&pictureId={{ picture.id }}" method="POST" >
                                 <button type="submit"  {{ legend.isAbleToVote?:"disabled"}} class=" btn btn-outline-danger"><i class="fas fa-star"></i></button>
                             </form>
@@ -39,7 +39,7 @@
                                     {{ legend.content }}
                                 </div>
                             </div>
-                            <span class="badge bg-primary ">{{ legend.ranking }}
+                            <span class="badge bg-primary fs-5 ">{{ legend.ranking }}
                             <form  action="image/vote?legendId={{ legend.legend_id }}&pictureId={{ picture.id }}" method="POST" >
                                 <button type="submit"  {{ legend.isAbleToVote?:"disabled"}} class=" btn btn-outline-danger"><i class="fas fa-star"></i></button>
                             </form>
@@ -50,8 +50,8 @@
                 {% endfor %}
             </ul>
         <form action="" class="g-3 needs-validation" method="post" novalidate>
-            <div class="col-12 col-sm-10 col-md-9 rounded mx-auto">
-                <label for="validationTextarea" class="form-label text-ternary fs-2">Poste nous ta meilleure légende !
+            <div class="col-12 col-sm-10 col-md-9 rounded mx-auto mt-5">
+                <label for="validationTextarea" class="form-label text-ternary fs-3">Poste nous ta meilleure légende !
                     <span class="text-secondary">{% for error in errors %}{{ error }}{% endfor %}</span>
                 </label>
                 <input type="text" name="inputLegend" class="form-control is-invalid" id="validationTextarea" placeholder="Laisse libre cours à ton imagination" required>

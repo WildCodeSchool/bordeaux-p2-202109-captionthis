@@ -143,3 +143,7 @@ input{
     background-color: var(--secondary-color);
 }
 
+.list-group-item  {
+    background-color: var(--primary-color) !important;
+    color: var(--ternary-color) !important;
+}
