@@ -1,44 +1,46 @@
 {% extends 'layout.html.twig' %}
 
     {% block content %}
-        <form method="post">
-            <div class="container">
-                <div class="d-flex justify-content-center h-100">
-                    <div class="card bg-primary">
-                        <div class="card-header text-ternary d-flex justify-content-center mt-5">
-                            <h3>Connecte-toi</h3>
-                        </div>
-                        <div class="card-body">
-                            <form>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend d-flex align-items-stretch">
-                                        <span class="input-group-text bg-secondary"><i class="fas fa-user text-primary"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Pseudo" name="name" required autofocus>
-                                </div> <br>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend d-flex align-items-stretch">
-                                        <span class="input-group-text bg-secondary "><i class="fas fa-key text-primary"></i></span>
-                                    </div>
-                                    <input type="password" class="form-control" placeholder="Mot de passe" name="password" required >
-                                </div>
-                                <div class="text-ternary d-flex justify-content-center">
-                                    {% for error in errors %}
-                                        {{ error }} <br>
-                                    {% endfor %}
-                                </div>
-                                <div class="form-group d-flex justify-content-center">
-                                    <button type="submit" value="Login" class="btn mt-5 float-right text-ternary bg-secondary login_btn"> Se connecter </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="card-footer">
-                            <div class="d-flex justify-content-center links">
-                                <a href="/inscription" class="text-ternary">Tu n'as pas de compte ?   <i class="fas fa-user-plus link-light"></i> </a>
+<div class="container d-flex">
+    <div class="row mt-5 d-flex col-3 rounded justify-content-center text-center">
+        <img src="https://media.giphy.com/media/3o7rc0qU6m5hneMsuc/source.gif" h-auto/>
+    </div>
+    <form method="post" class="col-7">
+            <div class="d-flex justify-content-center">
+                <div class="card bg-primary">
+                    <div class="card-header text-ternary d-flex justify-content-center mt-5">
+                        <h3>Connecte-toi</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend d-flex align-items-stretch">
+                                <span class="input-group-text bg-secondary"><i class="fas fa-user text-primary"></i></span>
                             </div>
+                            <input type="text" class="form-control" placeholder="Pseudo" name="name" required autofocus>
+                        </div> <br>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend d-flex align-items-stretch">
+                                <span class="input-group-text bg-secondary "><i class="fas fa-key text-primary"></i></span>
+                            </div>
+                            <input type="password" class="form-control" placeholder="Mot de passe" name="password" required >
                         </div>
+                        <div class="text-ternary d-flex justify-content-center">
+                            {% for error in errors %}
+                                {{ error }} <br>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group d-flex justify-content-center">
+                            <button type="submit" value="Login" class="btn mt-5 float-right text-ternary bg-secondary login_btn"> Se connecter </button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links">
+                            <a href="/registration" class="text-ternary">Tu n'as pas de compte ?   <i class="fas fa-user-plus link-light"></i> </a>
+          </div>
                     </div>
                 </div>
             </div>
-        </form>
+    </form>
+</div>
     {% endblock %}
