@@ -10,7 +10,7 @@ class ConnectFormValidator extends FormValidator
     {
         $userManager = new UserManager();
         $userData = $userManager->selectOnebyName($name);
-        if ($_POST['name'] === '' || !password_verify($_POST['password'], $userData['password'])) {
+        if ($_POST['name'] === '' || !$userData || !password_verify($_POST['password'], $userData['password'])) {
             $this->errors[] = 'échec de la connexion';
         }
     }

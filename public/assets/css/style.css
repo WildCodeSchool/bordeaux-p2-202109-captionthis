@@ -84,7 +84,6 @@ input{
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    height: 400px;
 }
 .photo-profil {
     max-width: 80px;
@@ -95,11 +94,12 @@ input{
 }
 .rank-number {
     position: absolute;
-    font-size: 8rem;
+    font-size: 10rem;
     color: white;
     /*opacity: .7;*/
     right: center;
-    top: 164px;
+    top: 125px;
+    text-shadow: 6px 10px 2px #040404, 0 0 0 #3c3737;
 }
 .content {
     position: absolute;
@@ -142,3 +142,7 @@ input{
     background-color: var(--secondary-color);
 }
 
+.list-group-item  {
+    background-color: var(--primary-color) !important;
+    color: var(--ternary-color) !important;
+}
