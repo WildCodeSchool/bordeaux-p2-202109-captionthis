@@ -141,11 +141,4 @@ input{
     color: var(--ternary-color);
     background-color: var(--secondary-color);
 }
-@media only screen and (min-width: 1000px) {
-    .piaf {
-        display: none;
-    }
-}
-
-}
 
