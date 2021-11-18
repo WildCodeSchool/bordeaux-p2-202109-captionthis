@@ -20,7 +20,7 @@ class AdminController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (count($errors) === 0) {
                 $urlManager = new UrlManager();
-                $urlManager->addPictureForAdmin($_POST['url']);
+                $urlManager->addPictureForAdmin($_POST['url'], $_SESSION['user']['id']);
             }
         }
 

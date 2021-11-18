@@ -81,7 +81,7 @@ class UserController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (count($errors) === 0) {
                 $urlManager = new UrlManager();
-                $urlManager-> addPictureForUser($_POST['url']);
+                $urlManager-> addPictureForUser($_POST['url'], $_SESSION['user']['id']);
             }
         }
         $userManager = new UserManager();
