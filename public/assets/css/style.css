@@ -162,14 +162,15 @@ input{
 }
 .popup {
     position: absolute;
-    top: 30vh;
-    width: 20vw;
-    height: 80px;
-    left: 40vw;
+    top: 10vh;
+    width: 50vw;
+    height: 90px;
+    left: 30vw;
     background-color: white;
     border-radius: 15px;
     vertical-align: middle;
     Font-size: 20px;
+    color: red;
     text-align: center;
     display: none;
 }
