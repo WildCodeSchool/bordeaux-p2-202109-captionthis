@@ -160,5 +160,16 @@ input{
 .fa-image, .fa-comments, .légendes, .images{
     text-decoration: none !important;
 }
-
-.légendes
+.popup {
+    position: absolute;
+    top: 30vh;
+    width: 20vw;
+    height: 80px;
+    left: 40vw;
+    background-color: white;
+    border-radius: 15px;
+    vertical-align: middle;
+    Font-size: 20px;
+    text-align: center;
+    display: none;
+}
