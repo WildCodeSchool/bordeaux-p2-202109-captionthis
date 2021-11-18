@@ -157,3 +157,6 @@ input{
     background-repeat: no-repeat;
     background-position: center;
 }
+.fa-image, .fa-comments, .légendes, .images{
+    text-decoration: none !important;
+}

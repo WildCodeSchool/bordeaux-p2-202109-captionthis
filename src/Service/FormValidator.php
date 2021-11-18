@@ -44,7 +44,7 @@ class FormValidator
     public function checkLength(string $input, string $label, int $min, int $max): void
     {
         if (strlen($input) <= $min) {
-            $this->errors[] = $label . ' doit faire au minimum ' . $min . ' caractères.';
+            $this->errors[] = $label . ' doit faire au minimum ' . $min . ' caractère(s).';
         }
         if (strlen($input) >= $max) {
             $this->errors[] = $label . ' doit faire au maximum '  . $max . ' caractères.';
