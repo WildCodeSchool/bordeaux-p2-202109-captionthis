@@ -18,6 +18,11 @@
                     <span class="text-ternary picture-url fs-4 mt-5"><p> Toi-aussi, tu peux nous balancer une image rigolote !</p>
                         <form method="POST" class="col">
                             <input class="col-12"  type="url" id="url" name="url" placeholder="URL d'une image"/>
+                                <div class="text-ternary d-flex justify-content-center">
+                                    {% for error in errors %}
+                                        {{ error }} <br>
+                                    {% endfor %}
+                                </div>
                             <button class="row text-ternary btn bg-secondary btn-block m-3 fs-4 "> Envoyer une image fun</button>
                         </form>
                     </span>

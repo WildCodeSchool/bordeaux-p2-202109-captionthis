@@ -10,6 +10,11 @@
                 <input type="url" id="url" name="url" class="w-75 h-75 rounded-pill" placeholder="URL d'une image"/>
                 <button class="text-ternary btn bg-secondary h-25 btn-block mx-3 p-0 fs-4 "> Envoyer une image fun</button>
             </form>
+        <div class="text-ternary d-flex justify-content-center">
+            {% for error in errors %}
+                {{ error }} <br>
+            {% endfor %}
+        </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-6 ">

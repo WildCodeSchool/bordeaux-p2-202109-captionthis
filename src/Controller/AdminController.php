@@ -6,6 +6,7 @@ use App\Model\ItemManager;
 use App\Model\LegendManager;
 use App\Model\PictureManager;
 use App\Model\UrlManager;
+use App\Service\FormValidator;
 
 class AdminController extends AbstractController
 {
@@ -18,6 +19,13 @@ class AdminController extends AbstractController
         }
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $formValidator = new FormValidator($_POST);
+            $formValidator->trimALL();
+            $toCheckInputs = [
+                'url'   => 'L\'url',
+            ];
+            $formValidator->checkEmptyInputs($toCheckInputs);
+            $errors = $formValidator->getErrors();
             if (count($errors) === 0) {
                 $urlManager = new UrlManager();
                 $urlManager->addPictureForAdmin($_POST['url'], $_SESSION['user']['id']);
@@ -31,7 +39,7 @@ class AdminController extends AbstractController
         return $this->twig->render('admin/admin.html.twig', [
             'legend_manager' => $legends,
             'pictures'      => $pictures,
-
+            'errors'           => $errors,
         ]);
     }
 

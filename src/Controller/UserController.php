@@ -79,6 +79,13 @@ class UserController extends AbstractController
     {
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $formValidator = new FormValidator($_POST);
+            $formValidator->trimALL();
+            $toCheckInputs = [
+                'url'   => 'L\'url',
+            ];
+            $formValidator->checkEmptyInputs($toCheckInputs);
+            $errors = $formValidator->getErrors();
             if (count($errors) === 0) {
                 $urlManager = new UrlManager();
                 $urlManager-> addPictureForUser($_POST['url'], $_SESSION['user']['id']);
@@ -91,6 +98,8 @@ class UserController extends AbstractController
         return $this->twig->render('User/profile.html.twig', [
             'user_data' => $userData,
             'user_legends' => $userLegends,
-            ]);
+            'errors'           => $errors,
+
+        ]);
     }
 }
