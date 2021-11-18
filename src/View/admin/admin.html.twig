@@ -27,18 +27,18 @@
                             <form action="admin/modificationImage" method="POST" class="col-10">
                                 <input type="hidden" name="id" value="{{ picture.id }}">
                                 <input type="text" class="col-8" name="url" value="{{ picture.url}}">
-                                <button class="m-1 fs-3 border-0 bg-primary"><i class="far fa-edit text-ternary"></i></button>
+                                <button class="m-1 fs-3 border-0 bg-primary"><i class="far fa-edit text-ternary" title=" clique pour modifier l'url de la photo! "></i></button>
                             </form>
 
                             {% if picture.is_validate == false %}
                             <form action="admin/validationImage" method="POST">
                                 <input type="hidden" name="id" value="{{ picture.id }}">
-                                <button class="m-1 fs-3 border-0 bg-primary"><i class="text-secondary fas fa-check"></i> </button>
+                                <button class="m-1 fs-3 border-0 bg-primary"><i class="text-secondary fas fa-check" title=" clique pour valider la photo! "></i> </button>
                             </form>
                             {% else %}
                                 <form action="admin/validationImageZero" method="POST" >
                                     <input type="hidden" name="id" value="{{ picture.id }}">
-                                    <button class="m-1 fs-3 border-0 bg-primary"><i class="far fa-trash-alt text-ternary"></i></button>
+                                    <button class="m-1 fs-3 border-0 bg-primary"><i class="far fa-trash-alt text-ternary" title=" clique pour retirer la photo! "></i></button>
                                 </form>
                                 <div class="m-1 fs-3 border-0"><i class="text-success fas fa-check"></i> </div>
 
@@ -64,11 +64,11 @@
                                  <input type="hidden" name="idLegend" value="{{ legend_manager.id }}">
 
                                  <input type="text" class="col-9" name="content" value="{{ legend_manager.content }}">
-                                 <button class="m-2 fs-3 border-0 bg-primary"><i class="far fa-edit text-ternary"></i></button>
+                                 <button class="m-2 fs-3 border-0 bg-primary"><i class="far fa-edit text-ternary" title=" clique pour modifier la légende! "></i></button>
                              </form>
                              <form action="/admin/suppressionLegende" method="POST" onsubmit="return confirm('T es vraiment chaud pour supprimer ?')">
                                  <input type="hidden" name="delete" value="{{ legend_manager.id }}">
-                                 <button class="m-2 fs-3 border-0 bg-primary"><i class="far fa-trash-alt text-ternary"></i></button>
+                                 <button class="m-2 fs-3 border-0 bg-primary"><i class="far fa-trash-alt text-ternary" title=" clique pour supprimer la légende! "></i></button>
                              </form>
                          </div>
                     </li>
