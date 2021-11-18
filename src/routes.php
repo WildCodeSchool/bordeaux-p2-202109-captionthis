@@ -11,7 +11,7 @@ return [
     'image'                     => ['PictureController','show', ['id']],
     'inscription'               => ['UserController', 'register',],
     'connexion'                 => ['UserController', 'connect',],
-    'déconnexion'               => ['UserController', 'logout',],
+    'deconnexion'               => ['UserController', 'logout',],
     'profil'                    => ['UserController', 'profile', ['id']],
     'admin'                     => ['AdminController', 'showLegendForAdmin'],
     'admin/suppressionLegende'  => ['AdminController', 'deleteLegend'],
