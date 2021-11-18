@@ -78,6 +78,7 @@ class UserController extends AbstractController
     public function profile(int $id): string
     {
         $errors = [];
+        $success = '';
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $formValidator = new FormValidator($_POST);
             $formValidator->trimALL();
@@ -89,6 +90,7 @@ class UserController extends AbstractController
             if (count($errors) === 0) {
                 $urlManager = new UrlManager();
                 $urlManager-> addPictureForUser($_POST['url'], $_SESSION['user']['id']);
+                $success = '1';
             }
         }
         $userManager = new UserManager();
@@ -96,10 +98,10 @@ class UserController extends AbstractController
         $profileManager = new ProfileManager();
         $userLegends = $profileManager->selectAllLegendsByUser($id);
         return $this->twig->render('User/profile.html.twig', [
-            'user_data' => $userData,
+            'user_data'    => $userData,
             'user_legends' => $userLegends,
-            'errors'           => $errors,
-
-        ]);
+            'errors'       => $errors,
+            'success'      => $success,
+            ]);
     }
 }
