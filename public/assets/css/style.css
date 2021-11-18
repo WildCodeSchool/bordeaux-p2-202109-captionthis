@@ -141,9 +141,19 @@ input{
     color: var(--ternary-color);
     background-color: var(--secondary-color);
 }
-
 .list-group-item  {
     background-color: var(--primary-color) !important;
     color: var(--ternary-color) !important;
 }
-
+.gifConnect {
+    background-image: url("https://media.giphy.com/media/3o7rc0qU6m5hneMsuc/source.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.gifRegister {
+    background-image: url("https://acegif.com/wp-content/gifs/dancing-pig-22.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
