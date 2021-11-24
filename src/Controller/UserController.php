@@ -86,6 +86,7 @@ class UserController extends AbstractController
                 'url'   => 'L\'url',
             ];
             $formValidator->checkEmptyInputs($toCheckInputs);
+            $formValidator->checkLength($_POST['url'], 'L\'url', 6, 255);
             $errors = $formValidator->getErrors();
             if (count($errors) === 0) {
                 $urlManager = new UrlManager();

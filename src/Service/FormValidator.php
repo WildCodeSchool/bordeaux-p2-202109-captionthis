@@ -22,9 +22,7 @@ class FormValidator
         }
     }
 
-    /**
-     * @return array
-     */
+
     public function getPosts(): array
     {
         return $this->posts;
